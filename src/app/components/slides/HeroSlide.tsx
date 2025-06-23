@@ -6,7 +6,7 @@ interface SlideComponentProps {
 }
 
 export const HeroSlide = ({ slide }: SlideComponentProps) => {
-  const IconComponent = slide.icon;
+  // const IconComponent = slide.icon;
   return (
     <div className="text-center max-w-6xl mx-auto select-none relative min-h-screen flex flex-col justify-center">
       {/* Floating background elements */}
@@ -60,7 +60,7 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
         className="mb-12"
       >
         <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
-          <IconComponent size={56} className="text-gray-800" />
+          {/* 아이콘 영역 제거 */}
         </div>
       </motion.div>
       <motion.h1

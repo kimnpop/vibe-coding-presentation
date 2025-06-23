@@ -6,7 +6,7 @@ interface SlideComponentProps {
 }
 
 export const LimitSlide = ({ slide }: SlideComponentProps) => {
-  const IconComponent = slide.icon;
+  // const IconComponent = slide.icon;
   return (
     <div className="text-center max-w-4xl mx-auto select-none">
       <motion.div
@@ -20,7 +20,7 @@ export const LimitSlide = ({ slide }: SlideComponentProps) => {
         className="mb-12"
       >
         <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
-          <IconComponent size={56} className="text-gray-800" />
+          {/* 아이콘 영역 제거 */}
         </div>
       </motion.div>
       <motion.h1
