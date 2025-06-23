@@ -83,7 +83,7 @@ export const slides: Slide[] = [
       },
     ],
     icon: BarChart3,
-    subtitle: "기획 → 디자인 → 개발 → QA, 경계마다 생기는 비용",
+    subtitle: "현재 방식의 숨겨진 비용을 살펴보면",
   },
   {
     type: "impact",
