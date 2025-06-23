@@ -50,56 +50,88 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
         {slide.description}
       </motion.p>
 
-      <div className="relative">
-        {/* Flow arrows */}
-        <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-300 transform -translate-y-1/2 z-0"></div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Left side - Initial request */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">🎯 시작점</h3>
+          <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
+            <span className="text-lg font-semibold text-gray-800">
+              {slide.strengths?.[0]}
+            </span>
+          </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
-          {slide.strengths?.map((strength, i) => (
+        {/* Right side - Process steps */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            ⚡ 진행 과정
+          </h3>
+          {slide.strengths?.slice(1, 4).map((strength, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              key={i + 1}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 0.5 + i * 0.15,
+                delay: 0.6 + i * 0.1,
                 duration: 0.4,
                 ease: "easeOut",
               }}
               whileHover={{
-                scale: 1.1,
-                y: -10,
+                scale: 1.02,
                 transition: { duration: 0.2 },
               }}
-              className="relative group"
+              className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300"
             >
-              {/* Connection line for mobile */}
-              {i < slide.strengths!.length - 1 && (
-                <div className="md:hidden absolute top-1/2 left-full w-4 h-0.5 bg-gray-300 transform -translate-y-1/2 z-0"></div>
-              )}
+              <span className="text-base font-medium text-gray-700">
+                {strength}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
 
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative">
-                {/* Step number */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 bg-gray-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                  {i + 1}
-                </div>
-
-                <div className="text-center">
-                  <span className="text-lg font-medium text-gray-700 leading-relaxed">
-                    {strength}
-                  </span>
-                </div>
-
-                {/* Arrow for desktop */}
-                {i < slide.strengths!.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-6 w-12 h-0.5 bg-gray-300 transform -translate-y-1/2">
-                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-300 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
-                  </div>
-                )}
-              </div>
+      {/* Bottom - Results */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.4, ease: "easeOut" }}
+        className="mt-8 max-w-4xl mx-auto"
+      >
+        <h3 className="text-2xl font-bold text-gray-800 mb-6">🚀 결과</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {slide.strengths?.slice(4).map((strength, i) => (
+            <motion.div
+              key={i + 4}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 1.0 + i * 0.1,
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
+              className="bg-white p-5 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <span className="text-lg font-semibold text-gray-800">
+                {strength}
+              </span>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
