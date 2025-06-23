@@ -236,7 +236,7 @@ export default function PitchDeck() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-gray-500 font-light"
             >
               {slide.description}
             </motion.p>
