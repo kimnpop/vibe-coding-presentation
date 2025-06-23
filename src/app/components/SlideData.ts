@@ -62,8 +62,9 @@ export const slides: Slide[] = [
   },
   {
     type: "issue",
-    title: "병목은 어디서 생기는가?",
-    description: "업무가 잘게 쪼개진 현실에서 경계마다 생기는 비용들",
+    title: "가장 큰 비효율을 찾아보면",
+    description:
+      "업무가 잘게 쪼개진 현실에서 경계마다 생기는 비용들을 살펴봅시다",
     issues: [
       {
         label: "컨텍스트 전환",
