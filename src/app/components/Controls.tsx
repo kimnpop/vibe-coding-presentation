@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Home } from "lucide-react";
+import { GeistSans } from "geist/font/sans";
 
 interface ControlsProps {
   index: number;
@@ -53,7 +54,9 @@ export const Controls = ({
         </motion.button>
       </div>
 
-      <div className="absolute top-6 right-8 text-lg text-gray-500 z-20 bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
+      <div
+        className={`absolute top-6 right-8 text-lg text-gray-500 z-20 bg-gray-100 px-4 py-2 rounded-full border border-gray-200 ${GeistSans.className}`}
+      >
         {index + 1} / {totalSlides}
       </div>
     </>

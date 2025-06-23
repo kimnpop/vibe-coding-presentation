@@ -49,20 +49,6 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
         className="absolute bottom-40 left-20 w-12 h-12 bg-gray-100 rounded-full opacity-30"
       />
 
-      <motion.div
-        initial={{ scale: 0, rotateZ: 180 }}
-        animate={{ scale: 1, rotateZ: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.2,
-          ease: "easeOut",
-        }}
-        className="mb-12"
-      >
-        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
-          {/* 아이콘 영역 제거 */}
-        </div>
-      </motion.div>
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
