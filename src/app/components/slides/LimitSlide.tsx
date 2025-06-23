@@ -33,10 +33,10 @@ export const LimitSlide = ({ slide }: SlideComponentProps) => {
       </motion.h1>
       {slide.subtitle && (
         <motion.h2
-          initial={{ opacity: 0, y: -80, rotateX: 45 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
-          className="text-lg md:text-xl font-light mb-8 text-gray-600"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+          className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
         >
           {slide.subtitle}
         </motion.h2>
@@ -52,10 +52,10 @@ export const LimitSlide = ({ slide }: SlideComponentProps) => {
         </p>
       </motion.div>
       <motion.p
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl text-gray-500 font-light mb-8"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+        className="text-base md:text-lg mb-12 text-gray-500 font-light"
       >
         {slide.description}
       </motion.p>

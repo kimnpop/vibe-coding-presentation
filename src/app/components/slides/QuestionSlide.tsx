@@ -35,8 +35,8 @@ export const QuestionSlide = ({ slide }: SlideComponentProps) => {
         <motion.h2
           initial={{ opacity: 0, y: 100, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
-          className="text-lg md:text-xl font-light mb-8 text-gray-600"
+          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+          className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
         >
           {slide.subtitle}
         </motion.h2>
@@ -58,7 +58,7 @@ export const QuestionSlide = ({ slide }: SlideComponentProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
-            className="text-lg md:text-xl text-gray-700 font-light leading-relaxed mb-8 relative z-10"
+            className="text-base md:text-lg text-gray-500 font-light leading-relaxed mb-8 relative z-10"
           >
             {slide.description}
           </motion.p>
