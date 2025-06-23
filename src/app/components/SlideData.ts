@@ -9,6 +9,14 @@ import {
   Eye,
   Workflow,
   CheckCircle,
+  ConciergeBell,
+  Bot,
+  GraduationCap,
+  Languages,
+  Shuffle,
+  Puzzle,
+  CopySlash,
+  Hourglass,
 } from "lucide-react";
 
 export interface Slide {
@@ -17,11 +25,15 @@ export interface Slide {
   subtitle?: string;
   description?: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
-  points?: string[];
+  points?: Array<{
+    text: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>;
   issues?: Array<{
     label: string;
     value: string;
     detail?: string;
+    icon?: React.ComponentType<{ className?: string }>;
   }>;
   steps?: string[];
   strengths?: string[];
@@ -50,10 +62,22 @@ export const slides: Slide[] = [
     title: "AI, 혹시 이렇게만 쓰고 계신가요?",
     description: "이 방식들, 과연 AI의 전부일까요?",
     points: [
-      "🧑‍💼 정보를 빠르게 찾아주는 비서",
-      "🗂️ 단순 작업을 대신하는 인턴",
-      "👩‍🏫 학습을 도와주는 선생님",
-      "🌐 문서/채팅을 번역하는 번역가",
+      {
+        text: "정보를 빠르게 찾아주는 비서",
+        icon: ConciergeBell,
+      },
+      {
+        text: "단순 작업을 대신하는 인턴",
+        icon: Bot,
+      },
+      {
+        text: "학습을 도와주는 선생님",
+        icon: GraduationCap,
+      },
+      {
+        text: "문서/채팅을 번역하는 번역가",
+        icon: Languages,
+      },
     ],
     icon: Target,
   },
@@ -67,52 +91,64 @@ export const slides: Slide[] = [
       {
         label: "컨텍스트 전환 비용",
         value: "23분",
-        detail: "업무 중단 후 재집중 시간 (Gloria Mark)",
+        detail:
+          "업무 중단 후 재집중 시간\n(Source: Gloria Mark, University of California, Irvine)",
+        icon: Shuffle,
       },
       {
-        label: "느려지는 핸드오프",
-        value: "x46",
-        detail: "잦은 핸드오프로 인한 리드타임 증가 (DORA)",
+        label: "85%의 대기 시간",
+        value: "85%",
+        detail:
+          "전체 리드타임의 85%는 가치를 더하지 않는 '대기 시간'이며, 대부분 부서 간 핸드오프에서 발생합니다. (Source: Mik Kersten, Project to Product)",
+        icon: Hourglass,
       },
       {
         label: "지식 파편화",
         value: "20%",
-        detail: "정보 검색/취합에 쓰는 업무 시간 (McKinsey)",
+        detail:
+          "정보 검색/취합에 쓰는 업무 시간\n(Source: McKinsey Global Institute)",
+        icon: Puzzle,
       },
       {
-        label: "사일로 효과",
-        value: "x2",
-        detail: "사일로 조직의 프로젝트 실패 확률 (IBM)",
+        label: "끝없는 중복 작업",
+        value: "20%",
+        detail:
+          "데이터 전문가들이 중복 작업으로 낭비하는 주간 업무 시간\n(Source: IDC Report, 2018)",
+        icon: CopySlash,
       },
     ],
     icon: BarChart3,
   },
   {
     type: "impact",
-    title: "그렇다면 AI는 어떻게 다를까?",
-    description: "현재 방식의 한계를 넘어서는 AI의 새로운 가능성을 살펴봅시다",
+    title: "AI, 경계를 허물다",
+    subtitle: "AI가 바꾸는 협업의 패러다임",
+    description:
+      "AI는 특정 역할을 맡은 '구성원'이 아니라, 기획부터 배포까지 모든 경계를 넘나드는 '프로세스 그 자체'가 될 수 있습니다.\n이를 통해 우리는 '경계'에서 발생하는 비용을 원천적으로 제거할 수 있습니다.",
     benefits: [
       {
-        label: "단일 컨텍스트",
-        value: "0분",
-        detail: "컨텍스트 전환 시간 없음",
+        label: "Unified Process\n(통합 프로세스)",
+        value: "No Handoff",
+        detail:
+          "AI가 기획-디자인-개발-배포 전 과정을 단독 처리하여 팀 간의 벽과 핸드오프를 제거합니다.",
       },
       {
-        label: "핸드오프",
-        value: "0회",
-        detail: "단계 간 전환 불필요",
+        label: "Single Context\n(단일 컨텍스트)",
+        value: "Zero Switching",
+        detail:
+          "모든 작업이 하나의 대화 안에서 이뤄지므로, 여러 툴을 오가며 발생하는 집중력 저하가 없습니다.",
       },
       {
-        label: "통합 처리",
-        value: "100%",
-        detail: "전체 업무 흐름 처리",
+        label: "Fragment-Free Knowledge\n(파편화 없는 지식)",
+        value: "Zero Search",
+        detail:
+          "AI가 기획-디자인-코드를 단일 컨텍스트에서 생성하므로, 지식이 여러 툴에 흩어지지 않습니다.\n더 이상 Jira, Figma, Slack을 오가며 파편화된 정보를 찾을 필요가 없습니다.",
       },
     ],
     icon: TrendingUp,
-    subtitle: "경계 없는 AI 중심의 업무 방식",
   },
   {
-    type: "impact",
+    type: "comparison",
     title: "AI가 잘하는 것 vs 못하는 것",
     description: "AI의 강점과 한계를 명확히 구분해서 이해해봅시다",
     benefits: [

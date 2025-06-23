@@ -6,21 +6,8 @@ interface SlideComponentProps {
 }
 
 export const IssueSlide = ({ slide }: SlideComponentProps) => {
-  // const IconComponent = slide.icon;
   return (
     <div className="text-center max-w-6xl mx-auto select-none">
-      <motion.div
-        initial={{ scale: 0, y: 100 }}
-        animate={{ scale: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.4,
-          ease: "easeOut",
-        }}
-        className="mb-12"
-      >
-        {/* 아이콘 영역 제거 */}
-      </motion.div>
       <motion.h1
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -48,51 +35,38 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
         {slide.description}
       </motion.p>
 
-      <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300"></div>
-
-        <div className="space-y-8">
-          {slide.issues?.map((issue, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {slide.issues?.map((issue, i) => {
+          const IconComponent = issue.icon;
+          return (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                delay: 0.5 + i * 0.2,
+                delay: 0.5 + i * 0.1,
                 duration: 0.5,
                 ease: "easeOut",
               }}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-              className={`relative flex items-center ${
-                i % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              }`}
+              className="bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-gray-200/50 flex flex-col text-center items-center shadow-lg"
             >
-              {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-gray-400 rounded-full shadow-lg z-10"></div>
-
-              {/* Content card */}
-              <div className={`w-5/12 ${i % 2 === 0 ? "pr-8" : "pl-8"}`}>
-                <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <div className="text-4xl font-black mb-3 text-gray-900">
-                    {issue.value}
-                  </div>
-                  <div className="text-lg text-gray-700 font-semibold mb-2">
-                    {issue.label}
-                  </div>
-                  {issue.detail && (
-                    <div className="text-sm text-gray-500 font-light leading-relaxed">
-                      {issue.detail}
-                    </div>
-                  )}
+              {IconComponent && (
+                <div className="bg-gray-200/50 p-3 rounded-xl mb-4">
+                  <IconComponent className="h-6 w-6 text-gray-800" />
                 </div>
-              </div>
+              )}
+              <span className="text-5xl font-black text-gray-900 mb-2">
+                {issue.value}
+              </span>
+              <h3 className="text-md font-semibold text-gray-800 flex-grow">
+                {issue.label}
+              </h3>
+              <p className="text-xs text-gray-500 mt-3 whitespace-pre-line">
+                {issue.detail}
+              </p>
             </motion.div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
