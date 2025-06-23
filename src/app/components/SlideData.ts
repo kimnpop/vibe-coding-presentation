@@ -47,8 +47,8 @@ export const slides: Slide[] = [
   },
   {
     type: "problem",
-    title: "AI를 어떻게 쓰고 있습니까?",
-    description: "AI를 어떻게 쓰고 있습니까? 이 예시들의 공통점은 무엇일까요?",
+    title: "AI, 혹시 이렇게만 쓰고 계신가요?",
+    description: "이 방식들, 과연 AI의 전부일까요?",
     points: [
       "🧑‍💼 정보를 빠르게 찾아주는 비서",
       "🗂️ 단순 작업을 대신하는 인턴",
@@ -56,7 +56,6 @@ export const slides: Slide[] = [
       "🌐 문서/채팅을 번역하는 번역가",
     ],
     icon: Target,
-    subtitle: "AI는 그 이상의 잠재력을 가지고 있습니다",
   },
   {
     type: "issue",
