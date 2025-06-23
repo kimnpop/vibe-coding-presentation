@@ -12,7 +12,7 @@ export const ImpactSlide = ({ slide }: SlideComponentProps) => {
   const isTransitionSlide = slide.title === "그렇다면 AI는 어떻게 다를까?";
 
   return (
-    <div className="text-center max-w-6xl mx-auto">
+    <div className="text-center max-w-6xl mx-auto select-none">
       <motion.div
         initial={{ scale: 0, rotateZ: 180 }}
         animate={{ scale: 1, rotateZ: 0 }}
@@ -28,27 +28,27 @@ export const ImpactSlide = ({ slide }: SlideComponentProps) => {
         </div>
       </motion.div>
       <motion.h1
-        initial={{ opacity: 0, y: -200 }}
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.2, ease: "easeOut" }}
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
         className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
       >
         {slide.title}
       </motion.h1>
       {slide.subtitle && (
         <motion.h2
-          initial={{ opacity: 0, y: 200 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.2, ease: "easeOut" }}
+          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
           className="text-lg md:text-xl font-light mb-8 text-gray-600"
         >
           {slide.subtitle}
         </motion.h2>
       )}
       <motion.p
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4, duration: 0.2, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
         className="text-lg md:text-xl mb-12 text-gray-600 font-light"
       >
         {slide.description}

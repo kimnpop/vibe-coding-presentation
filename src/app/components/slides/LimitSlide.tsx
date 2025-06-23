@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const LimitSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-4xl mx-auto">
+    <div className="text-center max-w-4xl mx-auto select-none">
       <motion.div
         initial={{ scale: 0, rotate: -90 }}
         animate={{ scale: 1, rotate: 0 }}

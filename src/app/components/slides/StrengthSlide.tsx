@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const StrengthSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-6xl mx-auto">
+    <div className="text-center max-w-6xl mx-auto select-none">
       <motion.div
         initial={{ scale: 0, rotateY: 90 }}
         animate={{ scale: 1, rotateY: 0 }}

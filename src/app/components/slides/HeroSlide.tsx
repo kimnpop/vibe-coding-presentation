@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const HeroSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-4xl mx-auto relative min-h-screen flex flex-col justify-center">
+    <div className="text-center max-w-6xl mx-auto select-none relative min-h-screen flex flex-col justify-center">
       {/* Floating background elements */}
       <motion.div
         animate={{
@@ -50,40 +50,42 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
       />
 
       <motion.div
-        initial={{ scale: 0, rotate: -180 }}
-        animate={{ scale: 1, rotate: 0 }}
+        initial={{ scale: 0, rotateZ: 180 }}
+        animate={{ scale: 1, rotateZ: 0 }}
         transition={{
           delay: 0.1,
-          duration: 0.4,
+          duration: 0.2,
           ease: "easeOut",
         }}
-        className="mb-16"
+        className="mb-12"
       >
-        <div className="bg-gray-100 p-8 rounded-3xl inline-block shadow-lg border border-gray-200">
-          <IconComponent size={72} className="text-gray-800" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
-        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
-        className="text-5xl md:text-7xl font-black mb-8 text-gray-900 leading-tight"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+        className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
       >
         {slide.title}
       </motion.h1>
-      <motion.h2
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
-        className="text-xl md:text-2xl font-light mb-12 text-gray-600"
-      >
-        {slide.subtitle}
-      </motion.h2>
+      {slide.subtitle && (
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+          className="text-lg md:text-xl font-light mb-8 text-gray-600"
+        >
+          {slide.subtitle}
+        </motion.h2>
+      )}
       <motion.p
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto leading-relaxed"
+        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+        className="text-lg md:text-xl mb-12 text-gray-600 font-light"
       >
         {slide.description}
       </motion.p>

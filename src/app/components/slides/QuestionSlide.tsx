@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const QuestionSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-5xl mx-auto min-h-screen flex flex-col justify-center">
+    <div className="text-center max-w-5xl mx-auto select-none min-h-screen flex flex-col justify-center">
       <motion.div
         initial={{ scale: 0, rotate: 180 }}
         animate={{ scale: 1, rotate: 0 }}
