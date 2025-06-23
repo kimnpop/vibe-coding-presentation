@@ -59,28 +59,33 @@ export const slides: Slide[] = [
   },
   {
     type: "issue",
-    title: "과연 이것들이 최선일까요?",
+    title: "진짜 문제는 다른 곳에 있습니다",
+    subtitle: "개별 업무 최적화의 함정",
     description:
-      "비서처럼 질문하고, 인턴처럼 위임하는 방식... 업무를 한정해서 생각하는 현재의 AI 활용법",
+      "AI를 비서나 인턴처럼 쓰는 것은 내 업무 영역 안에서만 효율을 높일 뿐입니다. 하지만 진짜 비효율은 사람과 사람, 팀과 팀 사이의 '경계'에서 발생합니다.",
     issues: [
       {
-        label: "컨텍스트 전환",
+        label: "컨텍스트 전환 비용",
         value: "23분",
-        detail: "평균 회복 시간 (Gloria Mark)",
+        detail: "업무 중단 후 재집중 시간 (Gloria Mark)",
       },
       {
-        label: "핸드오프 많은 팀",
-        value: "46배",
-        detail: "배포 속도 감소 (DORA)",
+        label: "느려지는 핸드오프",
+        value: "x46",
+        detail: "잦은 핸드오프로 인한 리드타임 증가 (DORA)",
       },
       {
-        label: "사일로 조직",
-        value: "2배",
-        detail: "프로젝트 실패 확률 증가 (IBM)",
+        label: "지식 파편화",
+        value: "20%",
+        detail: "정보 검색/취합에 쓰는 업무 시간 (McKinsey)",
+      },
+      {
+        label: "사일로 효과",
+        value: "x2",
+        detail: "사일로 조직의 프로젝트 실패 확률 (IBM)",
       },
     ],
     icon: BarChart3,
-    subtitle: "현재 방식의 숨겨진 비용을 살펴보면",
   },
   {
     type: "impact",
