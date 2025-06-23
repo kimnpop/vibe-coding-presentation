@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const ProcessSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-5xl mx-auto">
+    <div className="text-center max-w-6xl mx-auto">
       <motion.div
         initial={{ scale: 0, rotateX: 90 }}
         animate={{ scale: 1, rotateX: 0 }}
@@ -19,8 +19,8 @@ export const ProcessSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
-          <IconComponent size={56} className="text-gray-800" />
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl inline-block shadow-lg border border-purple-200">
+          <IconComponent size={56} className="text-purple-700" />
         </div>
       </motion.div>
       <motion.h1
@@ -45,26 +45,79 @@ export const ProcessSlide = ({ slide }: SlideComponentProps) => {
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl mb-10 text-gray-600 font-light"
+        className="text-lg md:text-xl mb-12 text-gray-600 font-light"
       >
         {slide.description}
       </motion.p>
-      <div className="flex flex-wrap justify-center gap-3">
-        {slide.steps?.map((step, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.5, rotate: 45 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{
-              delay: 0.5 + i * 0.05,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            className="bg-gray-100 px-5 py-3 rounded-full text-sm font-medium text-gray-800 hover:bg-gray-200 transition-all duration-300 shadow-sm hover:shadow-md"
-          >
-            {step}
-          </motion.div>
-        ))}
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Left side - Main tasks */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            🎯 핵심 업무
+          </h3>
+          {slide.steps?.slice(0, 2).map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.6 + i * 0.1,
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.02,
+                x: 10,
+                transition: { duration: 0.2 },
+              }}
+              className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <span className="text-lg font-semibold text-blue-800">
+                {step}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Right side - Supporting tasks */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            ⚙️ 지원 업무
+          </h3>
+          {slide.steps?.slice(2).map((step, i) => (
+            <motion.div
+              key={i + 2}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.6 + i * 0.1,
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.02,
+                x: -10,
+                transition: { duration: 0.2 },
+              }}
+              className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <span className="text-lg font-semibold text-gray-700">
+                {step}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

@@ -8,7 +8,47 @@ interface SlideComponentProps {
 export const HeroSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-4xl mx-auto relative">
+    <div className="text-center max-w-4xl mx-auto relative min-h-screen flex flex-col justify-center">
+      {/* Floating background elements */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 5, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-30"
+      />
+      <motion.div
+        animate={{
+          y: [0, 15, 0],
+          rotate: [0, -5, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+        className="absolute top-40 right-20 w-16 h-16 bg-green-100 rounded-full opacity-30"
+      />
+      <motion.div
+        animate={{
+          y: [0, -10, 0],
+          x: [0, 10, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute bottom-40 left-20 w-12 h-12 bg-purple-100 rounded-full opacity-30"
+      />
+
       <motion.div
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
@@ -19,7 +59,7 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-16"
       >
-        <div className="bg-gray-100 p-8 rounded-3xl inline-block shadow-lg">
+        <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-8 rounded-3xl inline-block shadow-xl border border-gray-300">
           <IconComponent size={72} className="text-gray-800" />
         </div>
       </motion.div>
@@ -43,7 +83,7 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl text-gray-500 font-light"
+        className="text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto leading-relaxed"
       >
         {slide.description}
       </motion.p>

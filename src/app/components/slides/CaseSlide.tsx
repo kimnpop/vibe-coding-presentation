@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const CaseSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-4xl mx-auto">
+    <div className="text-center max-w-5xl mx-auto">
       <motion.div
         initial={{ scale: 0, rotateX: -90 }}
         animate={{ scale: 1, rotateX: 0 }}
@@ -19,8 +19,8 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
-          <IconComponent size={56} className="text-gray-800" />
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl inline-block shadow-lg border border-blue-200">
+          <IconComponent size={56} className="text-blue-700" />
         </div>
       </motion.div>
       <motion.h1
@@ -45,29 +45,49 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
         initial={{ opacity: 0, rotateZ: 15 }}
         animate={{ opacity: 1, rotateZ: 0 }}
         transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl mb-10 text-gray-600 font-light"
+        className="text-lg md:text-xl mb-12 text-gray-600 font-light leading-relaxed"
       >
         {slide.description}
       </motion.p>
-      <div className="space-y-3">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {slide.results?.map((result, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -150, scale: 0.7 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 50, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
-              delay: 0.5 + i * 0.1,
+              delay: 0.5 + i * 0.15,
               duration: 0.4,
               ease: "easeOut",
             }}
-            className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
+            whileHover={{
+              scale: 1.05,
+              y: -5,
+              transition: { duration: 0.2 },
+            }}
+            className="relative group"
           >
-            <span className="text-base md:text-lg text-gray-700 font-light">
-              {result}
-            </span>
+            {/* Storyboard frame */}
+            <div className="bg-white p-6 rounded-2xl border-2 border-blue-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+              {/* Frame number */}
+              <div className="absolute top-2 right-2 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                {i + 1}
+              </div>
+
+              {/* Decorative corner */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-blue-300 rounded-tl-2xl"></div>
+
+              <div className="text-center pt-4">
+                <span className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
+                  {result}
+                </span>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
+
       {slide.highlight && (
         <motion.div
           initial={{ scale: 0.8, opacity: 0, y: 50, rotate: 10 }}
@@ -77,11 +97,11 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
             duration: 0.4,
             ease: "easeOut",
           }}
-          className="mt-8 inline-block"
+          className="inline-block"
         >
-          <div className="bg-gray-900 px-6 py-3 rounded-full shadow-lg">
-            <span className="text-base font-bold text-white">
-              {slide.highlight}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400">
+            <span className="text-lg font-bold text-white">
+              ✨ {slide.highlight}
             </span>
           </div>
         </motion.div>

@@ -8,7 +8,7 @@ interface SlideComponentProps {
 export const IssueSlide = ({ slide }: SlideComponentProps) => {
   const IconComponent = slide.icon;
   return (
-    <div className="text-center max-w-5xl mx-auto">
+    <div className="text-center max-w-6xl mx-auto">
       <motion.div
         initial={{ scale: 0, y: 100 }}
         animate={{ scale: 1, y: 0 }}
@@ -19,8 +19,8 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
-          <IconComponent size={56} className="text-gray-800" />
+        <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-2xl inline-block shadow-lg border border-yellow-200">
+          <IconComponent size={56} className="text-yellow-700" />
         </div>
       </motion.div>
       <motion.h1
@@ -45,36 +45,56 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
         initial={{ opacity: 0, x: 150 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="text-lg md:text-xl mb-10 text-gray-600 font-light"
+        className="text-lg md:text-xl mb-12 text-gray-600 font-light"
       >
         {slide.description}
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {slide.issues?.map((issue, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              delay: 0.5 + i * 0.1,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
-          >
-            <div className="text-3xl font-black mb-3 text-gray-900">
-              {issue.value}
-            </div>
-            <div className="text-base text-gray-600 font-light mb-2">
-              {issue.label}
-            </div>
-            {issue.detail && (
-              <div className="text-sm text-gray-500 font-light">
-                {issue.detail}
+
+      <div className="relative">
+        {/* Timeline line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-100"></div>
+
+        <div className="space-y-8">
+          {slide.issues?.map((issue, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{
+                delay: 0.5 + i * 0.2,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
+              className={`relative flex items-center ${
+                i % 2 === 0 ? "flex-row" : "flex-row-reverse"
+              }`}
+            >
+              {/* Timeline dot */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-gray-300 rounded-full shadow-lg z-10"></div>
+
+              {/* Content card */}
+              <div className={`w-5/12 ${i % 2 === 0 ? "pr-8" : "pl-8"}`}>
+                <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="text-4xl font-black mb-3 text-gray-900">
+                    {issue.value}
+                  </div>
+                  <div className="text-lg text-gray-700 font-semibold mb-2">
+                    {issue.label}
+                  </div>
+                  {issue.detail && (
+                    <div className="text-sm text-gray-500 font-light leading-relaxed">
+                      {issue.detail}
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
