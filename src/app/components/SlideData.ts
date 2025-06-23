@@ -136,13 +136,13 @@ export const slides: Slide[] = [
         label: "Single Context\n(단일 컨텍스트)",
         value: "Zero Switching",
         detail:
-          "모든 작업이 하나의 대화 안에서 이뤄지므로, 여러 툴을 오가며 발생하는 집중력 저하가 없습니다.",
+          "AI가 기획, 디자인, 코드 등 필요한 모든 정보를 단일 맥락에서 통합 처리합니다. 개발자는 더 이상 Jira, Figma, Slack 등 여러 도구를 오가며 정보를 찾거나 질문하느라 스스로 업무 흐름을 중단시킬 필요가 없습니다.",
       },
       {
         label: "Fragment-Free Knowledge\n(파편화 없는 지식)",
         value: "Zero Search",
         detail:
-          "AI가 기획-디자인-코드를 단일 컨텍스트에서 생성하므로, 지식이 여러 툴에 흩어지지 않습니다.\n더 이상 Jira, Figma, Slack을 오가며 파편화된 정보를 찾을 필요가 없습니다.",
+          "AI가 모든 산출물을 살아있는 '단일 진실 공급원(SSoT)'으로 통합 관리합니다. 더 이상 Jira, Figma 등 여러 시스템에 흩어진 정보를 찾아다닐 필요가 없습니다.",
       },
     ],
     icon: TrendingUp,
