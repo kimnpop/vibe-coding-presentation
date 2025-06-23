@@ -15,6 +15,9 @@ import {
   TrendingUp,
   AlertTriangle,
   Home,
+  Circle,
+  Square,
+  Triangle,
 } from "lucide-react";
 
 const slides = [
@@ -201,41 +204,195 @@ export default function PitchDeck() {
   const slide = slides[index];
   const IconComponent = slide.icon;
 
+  // Floating background elements
+  const FloatingElements = () => (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          x: [0, 10, 0],
+          rotate: [0, 5, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-20 left-10 text-gray-100"
+      >
+        <Circle size={24} />
+      </motion.div>
+      <motion.div
+        animate={{
+          y: [0, 15, 0],
+          x: [0, -15, 0],
+          rotate: [0, -8, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute top-40 right-20 text-gray-100"
+      >
+        <Square size={20} />
+      </motion.div>
+      <motion.div
+        animate={{
+          y: [0, -25, 0],
+          x: [0, 20, 0],
+          rotate: [0, 12, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+        className="absolute bottom-40 left-20 text-gray-100"
+      >
+        <Triangle size={28} />
+      </motion.div>
+      <motion.div
+        animate={{
+          y: [0, 18, 0],
+          x: [0, -25, 0],
+          rotate: [0, -15, 0],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+        className="absolute bottom-20 right-10 text-gray-100"
+      >
+        <Circle size={16} />
+      </motion.div>
+      <motion.div
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 15, 0],
+          rotate: [0, 8, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4,
+        }}
+        className="absolute top-1/2 left-1/4 text-gray-100"
+      >
+        <Square size={22} />
+      </motion.div>
+      <motion.div
+        animate={{
+          y: [0, 22, 0],
+          x: [0, -18, 0],
+          rotate: [0, -10, 0],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 5,
+        }}
+        className="absolute top-1/3 right-1/3 text-gray-100"
+      >
+        <Triangle size={18} />
+      </motion.div>
+    </div>
+  );
+
   const renderSlide = () => {
     switch (slide.type) {
       case "hero":
         return (
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto relative">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{
+                scale: 1,
+                rotate: 0,
+                y: [0, -10, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                y: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
               className="mb-16"
             >
-              <div className="bg-gray-100 p-8 rounded-3xl inline-block">
+              <div className="bg-gray-100 p-8 rounded-3xl inline-block shadow-lg">
                 <IconComponent size={72} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: 50, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: [0, -5, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="text-5xl md:text-7xl font-black mb-8 text-gray-900 leading-tight"
             >
               {slide.title}
             </motion.h1>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{
+                opacity: 1,
+                x: [0, 5, 0],
+              }}
+              transition={{
+                delay: 0.3,
+                type: "spring",
+                stiffness: 150,
+                x: {
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.7,
+                },
+              }}
               className="text-xl md:text-2xl font-light mb-12 text-gray-600"
             >
               {slide.subtitle}
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{
+                opacity: 1,
+                y: [0, -3, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                duration: 0.4,
+                y: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
               className="text-lg md:text-xl text-gray-500 font-light"
             >
               {slide.description}
@@ -247,37 +404,88 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, y: -50 }}
+              animate={{
+                scale: 1,
+                y: [0, -8, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                y: {
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.3,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, x: -200 }}
+              animate={{
+                opacity: 1,
+                x: [0, 3, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                x: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, x: 200 }}
+                animate={{
+                  opacity: 1,
+                  x: [0, -4, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  x: {
+                    duration: 3.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.7,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.02, 1],
+              }}
+              transition={{
+                delay: 0.4,
+                duration: 0.3,
+                scale: {
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -286,10 +494,25 @@ export default function PitchDeck() {
               {slide.points?.map((point, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.0 + i * 0.2 }}
-                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                  initial={{ opacity: 0, x: -100, rotateY: -90 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    rotateY: 0,
+                    y: [0, -2, 0],
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.08,
+                    type: "spring",
+                    stiffness: 200,
+                    y: {
+                      duration: 3 + i * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.2 + i * 0.2,
+                    },
+                  }}
+                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   <span className="text-lg md:text-xl text-gray-700 font-light">
                     {point}
@@ -304,48 +527,118 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotate: 180 }}
+              animate={{
+                scale: 1,
+                rotate: [0, 5, 0, -5, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 250,
+                damping: 12,
+                rotate: {
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: -100, scale: 1.2 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                scale: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, y: 100, scale: 0.8 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, 3, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  y: {
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, rotateX: 90 }}
+              animate={{
+                opacity: 1,
+                rotateX: 0,
+                y: [0, -2, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 150,
+                y: {
+                  duration: 4.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.2,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
             </motion.p>
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 1.0 }}
+              initial={{ scale: 0.8, opacity: 0, y: 50 }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                y: [0, -5, 0],
+              }}
+              transition={{
+                delay: 0.5,
+                type: "spring",
+                stiffness: 200,
+                damping: 15,
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                },
+              }}
               className="inline-block"
             >
-              <div className="bg-gray-900 px-8 py-4 rounded-full">
+              <div className="bg-gray-900 px-8 py-4 rounded-full shadow-lg">
                 <span className="text-xl md:text-2xl font-bold text-white">
                   {slide.highlight}
                 </span>
@@ -358,37 +651,90 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, y: 100 }}
+              animate={{
+                scale: 1,
+                y: [0, -6, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 400,
+                damping: 20,
+                y: {
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.03, 1],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 300,
+                scale: {
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.6,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, rotateZ: -10 }}
+                animate={{
+                  opacity: 1,
+                  rotateZ: [0, 2, 0, -2, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  rotateZ: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, x: 150 }}
+              animate={{
+                opacity: 1,
+                x: [0, 3, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                x: {
+                  duration: 4.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -397,10 +743,25 @@ export default function PitchDeck() {
               {slide.issues?.map((issue, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0 + i * 0.2 }}
-                  className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                  initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                  animate={{
+                    opacity: 1,
+                    y: [0, -3, 0],
+                    scale: 1,
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 15,
+                    y: {
+                      duration: 3.5 + i * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.2 + i * 0.2,
+                    },
+                  }}
+                  className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   <div className="text-3xl font-black mb-3 text-gray-900">
                     {issue.value}
@@ -423,37 +784,89 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotateX: 90 }}
+              animate={{
+                scale: 1,
+                rotateX: [0, 5, 0, -5, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 350,
+                rotateX: {
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: -150 }}
+              animate={{
+                opacity: 1,
+                y: [0, -4, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                y: {
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.7,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, y: 150 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, 2, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  y: {
+                    duration: 3.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.9,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.01, 1],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                scale: {
+                  duration: 5.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.1,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -462,10 +875,26 @@ export default function PitchDeck() {
               {slide.steps?.map((step, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.0 + i * 0.1 }}
-                  className="bg-gray-100 px-5 py-3 rounded-full text-sm font-medium text-gray-800 hover:bg-gray-200 transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0.5, rotate: 45 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0,
+                    y: [0, -2, 0],
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.05,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    y: {
+                      duration: 3.2 + i * 0.4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.3 + i * 0.1,
+                    },
+                  }}
+                  className="bg-gray-100 px-5 py-3 rounded-full text-sm font-medium text-gray-800 hover:bg-gray-200 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   {step}
                 </motion.div>
@@ -478,51 +907,119 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotateY: 90 }}
+              animate={{
+                scale: 1,
+                rotateY: [0, 8, 0, -8, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                rotateY: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.6,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, x: -300 }}
+              animate={{
+                opacity: 1,
+                x: [0, 4, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                x: {
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, x: 300 }}
+                animate={{
+                  opacity: 1,
+                  x: [0, -3, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  x: {
+                    duration: 4.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{
+                opacity: 1,
+                y: [0, -2, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                y: {
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.2,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
             </motion.p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="space-y-4">
               {slide.strengths?.map((strength, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.0 + i * 0.1 }}
-                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                  initial={{ opacity: 0, x: -200, scale: 0.8 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    y: [0, -1, 0],
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.08,
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 15,
+                    y: {
+                      duration: 3.5 + i * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.4 + i * 0.15,
+                    },
+                  }}
+                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  <span className="text-base text-gray-700 font-light">
+                  <span className="text-lg md:text-xl text-gray-700 font-light">
                     {strength}
                   </span>
                 </motion.div>
@@ -535,47 +1032,115 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotate: -90 }}
+              animate={{
+                scale: 1,
+                rotate: [0, 3, 0, -3, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 280,
+                damping: 15,
+                rotate: {
+                  duration: 6.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, scale: 1.3 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.02, 1],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 250,
+                scale: {
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.6,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, y: -80, rotateX: 45 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, -2, 0],
+                  rotateX: 0,
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  y: {
+                    duration: 4.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{
+                opacity: 1,
+                y: [0, -3, 0],
+                scale: 1,
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                y: {
+                  duration: 3.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8 shadow-sm hover:shadow-md"
             >
               <p className="text-lg md:text-xl text-gray-700 font-light">
                 {slide.limit}
               </p>
             </motion.div>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.0 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{
+                opacity: 1,
+                x: [0, 2, 0],
+              }}
+              transition={{
+                delay: 0.5,
+                type: "spring",
+                stiffness: 200,
+                x: {
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.2,
+                },
+              }}
               className="text-lg md:text-xl text-gray-500 font-light mb-8"
             >
               {slide.description}
@@ -585,10 +1150,25 @@ export default function PitchDeck() {
                 {slide.solutions.map((solution, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.2 + i * 0.2 }}
-                    className="bg-gray-50 p-4 rounded-xl border border-gray-200"
+                    initial={{ opacity: 0, x: 100, scale: 0.8 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      scale: 1,
+                      y: [0, -1, 0],
+                    }}
+                    transition={{
+                      delay: 0.6 + i * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                      y: {
+                        duration: 3.2 + i * 0.4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1.4 + i * 0.2,
+                      },
+                    }}
+                    className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
                   >
                     <span className="text-base md:text-lg text-gray-700 font-light">
                       {solution}
@@ -604,37 +1184,90 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotateZ: 180 }}
+              animate={{
+                scale: 1,
+                rotateZ: [0, 5, 0, -5, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                rotateZ: {
+                  duration: 7.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: -200 }}
+              animate={{
+                opacity: 1,
+                y: [0, -3, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                y: {
+                  duration: 4.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.7,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, y: 200 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, 2, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  y: {
+                    duration: 4.4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.9,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.01, 1],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                scale: {
+                  duration: 5.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.1,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -643,12 +1276,27 @@ export default function PitchDeck() {
               {slide.benefits?.map((benefit, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0 + i * 0.2 }}
-                  className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                  initial={{ opacity: 0, y: 80, scale: 0.7 }}
+                  animate={{
+                    opacity: 1,
+                    y: [0, -2, 0],
+                    scale: 1,
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 15,
+                    y: {
+                      duration: 3.8 + i * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.3 + i * 0.2,
+                    },
+                  }}
+                  className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  <div className="text-2xl font-black mb-3 text-gray-900">
+                  <div className="text-3xl font-black mb-3 text-gray-900">
                     {benefit.value}
                   </div>
                   <div className="text-base text-gray-600 font-light mb-2">
@@ -669,35 +1317,90 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotateX: -90 }}
+              animate={{
+                scale: 1,
+                rotateX: [0, 3, 0, -3, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                rotateX: {
+                  duration: 6.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={56} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl md:text-6xl font-black mb-4 text-gray-900"
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.03, 1],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 250,
+                scale: {
+                  duration: 5.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.6,
+                },
+              }}
+              className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-lg md:text-xl font-light mb-8 text-gray-600"
-            >
-              {slide.subtitle}
-            </motion.h2>
+            {slide.subtitle && (
+              <motion.h2
+                initial={{ opacity: 0, x: -150 }}
+                animate={{
+                  opacity: 1,
+                  x: [0, 3, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  x: {
+                    duration: 4.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8,
+                  },
+                }}
+                className="text-lg md:text-xl font-light mb-8 text-gray-600"
+              >
+                {slide.subtitle}
+              </motion.h2>
+            )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, rotateZ: 15 }}
+              animate={{
+                opacity: 1,
+                rotateZ: [0, 1, 0, -1, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 150,
+                rotateZ: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -706,10 +1409,26 @@ export default function PitchDeck() {
               {slide.results?.map((result, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.0 + i * 0.2 }}
-                  className="bg-gray-50 p-4 rounded-xl border border-gray-200"
+                  initial={{ opacity: 0, x: -150, scale: 0.7 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    y: [0, -1, 0],
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 15,
+                    y: {
+                      duration: 3.6 + i * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.2 + i * 0.15,
+                    },
+                  }}
+                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
                 >
                   <span className="text-base md:text-lg text-gray-700 font-light">
                     {result}
@@ -719,12 +1438,28 @@ export default function PitchDeck() {
             </div>
             {slide.highlight && (
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 1.8 }}
+                initial={{ scale: 0.8, opacity: 0, y: 50, rotate: 10 }}
+                animate={{
+                  scale: 1,
+                  opacity: 1,
+                  y: [0, -3, 0],
+                  rotate: 0,
+                }}
+                transition={{
+                  delay: 0.9,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                  y: {
+                    duration: 3.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.8,
+                  },
+                }}
                 className="mt-8 inline-block"
               >
-                <div className="bg-gray-900 px-6 py-3 rounded-full">
+                <div className="bg-gray-900 px-6 py-3 rounded-full shadow-lg">
                   <span className="text-base font-bold text-white">
                     {slide.highlight}
                   </span>
@@ -738,37 +1473,111 @@ export default function PitchDeck() {
         return (
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ scale: 0, rotateY: -180 }}
+              animate={{
+                scale: 1,
+                rotateY: [0, 10, 0, -10, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                rotateY: {
+                  duration: 9,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+              }}
               className="mb-12"
             >
-              <div className="bg-gray-100 p-6 rounded-2xl inline-block">
+              <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
                 <IconComponent size={64} className="text-gray-800" />
               </div>
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, scale: 0.4, y: 100 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.02, 1],
+                y: [0, -2, 0],
+              }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 250,
+                scale: {
+                  duration: 5.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.7,
+                },
+                y: {
+                  duration: 4.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.9,
+                },
+              }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
             </motion.h1>
             {slide.subtitle && (
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, scale: 1.5, y: -100 }}
+                animate={{
+                  opacity: 1,
+                  scale: [1, 1.01, 1],
+                  y: [0, 2, 0],
+                }}
+                transition={{
+                  delay: 0.3,
+                  type: "spring",
+                  stiffness: 250,
+                  scale: {
+                    duration: 6.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.1,
+                  },
+                  y: {
+                    duration: 4.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.3,
+                  },
+                }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
               </motion.h2>
             )}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, x: 200, rotateZ: -10 }}
+              animate={{
+                opacity: 1,
+                x: [0, 2, 0],
+                rotateZ: [0, 1, 0, -1, 0],
+              }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 200,
+                x: {
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                },
+                rotateZ: {
+                  duration: 7.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.7,
+                },
+              }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -777,10 +1586,26 @@ export default function PitchDeck() {
               {slide.applications?.map((app, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0 + i * 0.2 }}
-                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                  initial={{ opacity: 0, y: 80, scale: 0.6, rotateX: 45 }}
+                  animate={{
+                    opacity: 1,
+                    y: [0, -1, 0],
+                    scale: 1,
+                    rotateX: 0,
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    y: {
+                      duration: 3.4 + i * 0.4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.9 + i * 0.2,
+                    },
+                  }}
+                  className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   <span className="text-base md:text-lg text-gray-700 font-light">
                     {app}
@@ -790,12 +1615,28 @@ export default function PitchDeck() {
             </div>
             {slide.highlight && (
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 2.0 }}
+                initial={{ scale: 0.8, opacity: 0, y: 50, rotateY: 90 }}
+                animate={{
+                  scale: 1,
+                  opacity: 1,
+                  y: [0, -2, 0],
+                  rotateY: 0,
+                }}
+                transition={{
+                  delay: 1.0,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                  y: {
+                    duration: 3.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 2.5,
+                  },
+                }}
                 className="mt-8 inline-block"
               >
-                <div className="bg-gray-900 px-6 py-3 rounded-full">
+                <div className="bg-gray-900 px-6 py-3 rounded-full shadow-lg">
                   <span className="text-base font-bold text-white">
                     {slide.highlight}
                   </span>
@@ -863,6 +1704,8 @@ export default function PitchDeck() {
       <div className="absolute top-6 right-8 text-lg text-gray-500 select-none z-20 bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
         {index + 1} / {slides.length}
       </div>
+
+      <FloatingElements />
     </div>
   );
 }
