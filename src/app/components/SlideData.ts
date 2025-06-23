@@ -62,9 +62,9 @@ export const slides: Slide[] = [
   },
   {
     type: "issue",
-    title: "가장 큰 비효율을 찾아보면",
+    title: "과연 이것들이 최선일까요?",
     description:
-      "업무가 잘게 쪼개진 현실에서 경계마다 생기는 비용들을 살펴봅시다",
+      "비서처럼 질문하고, 인턴처럼 위임하는 방식... 업무를 한정해서 생각하는 현재의 AI 활용법",
     issues: [
       {
         label: "컨텍스트 전환",
