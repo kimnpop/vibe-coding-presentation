@@ -14,6 +14,7 @@ import {
   Rocket,
   TrendingUp,
   AlertTriangle,
+  Home,
 } from "lucide-react";
 
 const slides = [
@@ -157,20 +158,45 @@ const slides = [
 export default function PitchDeck() {
   const [index, setIndex] = useState(0);
 
+  // URL 파라미터에서 슬라이드 인덱스 읽기
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const slideIndex = urlParams.get("slide");
+    if (slideIndex !== null) {
+      const parsedIndex = parseInt(slideIndex);
+      if (
+        !isNaN(parsedIndex) &&
+        parsedIndex >= 0 &&
+        parsedIndex < slides.length
+      ) {
+        setIndex(parsedIndex);
+      }
+    }
+  }, []);
+
+  // 슬라이드 변경 시 URL 업데이트
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("slide", index.toString());
+    window.history.replaceState({}, "", url);
+  }, [index]);
+
   const next = useCallback(
     () => setIndex((i) => Math.min(i + 1, slides.length - 1)),
     []
   );
   const prev = useCallback(() => setIndex((i) => Math.max(i - 1, 0)), []);
+  const goToFirst = useCallback(() => setIndex(0), []);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft") prev();
+      if (e.key === "Home") goToFirst();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [next, prev]);
+  }, [next, prev, goToFirst]);
 
   const slide = slides[index];
   const IconComponent = slide.icon;
@@ -798,6 +824,18 @@ export default function PitchDeck() {
           {renderSlide()}
         </motion.div>
       </AnimatePresence>
+
+      <div className="absolute top-6 left-8 z-20">
+        <motion.button
+          onClick={goToFirst}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 border border-gray-200"
+          aria-label="첫 페이지로"
+        >
+          <Home size={24} className="text-gray-800" />
+        </motion.button>
+      </div>
 
       <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-8 z-20">
         <motion.button
