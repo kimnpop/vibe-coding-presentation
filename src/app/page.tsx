@@ -27,10 +27,10 @@ export default function PitchDeck() {
       const parsedIndex = parseInt(slideIndex);
       if (
         !isNaN(parsedIndex) &&
-        parsedIndex >= 0 &&
-        parsedIndex < slides.length
+        parsedIndex >= 1 &&
+        parsedIndex <= slides.length
       ) {
-        setIndex(parsedIndex);
+        setIndex(parsedIndex - 1);
       }
     }
   }, []);
@@ -38,7 +38,7 @@ export default function PitchDeck() {
   // 슬라이드 변경 시 URL 업데이트
   useEffect(() => {
     const url = new URL(window.location.href);
-    url.searchParams.set("slide", index.toString());
+    url.searchParams.set("slide", (index + 1).toString());
     window.history.replaceState({}, "", url);
   }, [index]);
 
