@@ -50,88 +50,80 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
         {slide.description}
       </motion.p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {/* Left side - Initial request */}
+      {/* Main content area */}
+      <div className="relative max-w-5xl mx-auto">
+        {/* Central conversation bubble */}
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
-          className="space-y-4"
+          className="bg-white p-8 rounded-3xl border-2 border-gray-200 shadow-2xl mb-8 relative"
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">🎯 시작점</h3>
-          <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
-            <span className="text-lg font-semibold text-gray-800">
-              {slide.strengths?.[0]}
-            </span>
+          <div className="text-2xl font-bold text-gray-800 mb-4">
+            {slide.strengths?.[0]}
+          </div>
+          <div className="text-lg text-gray-600">
+            이 한 마디로 시작되는 AI와의 대화
           </div>
         </motion.div>
 
-        {/* Right side - Process steps */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
-          className="space-y-4"
-        >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">
-            ⚡ 진행 과정
-          </h3>
+        {/* Surrounding process cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {slide.strengths?.slice(1, 4).map((strength, i) => (
             <motion.div
               key={i + 1}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? -5 : 5 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{
-                delay: 0.6 + i * 0.1,
+                delay: 0.6 + i * 0.15,
                 duration: 0.4,
                 ease: "easeOut",
               }}
               whileHover={{
-                scale: 1.02,
+                scale: 1.05,
+                rotate: i % 2 === 0 ? -2 : 2,
                 transition: { duration: 0.2 },
               }}
-              className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <span className="text-base font-medium text-gray-700">
+              <span className="text-base font-medium text-gray-700 leading-relaxed">
                 {strength}
               </span>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
 
-      {/* Bottom - Results */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.4, ease: "easeOut" }}
-        className="mt-8 max-w-4xl mx-auto"
-      >
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">🚀 결과</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Bottom results */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.4, ease: "easeOut" }}
+          className="mt-8 flex flex-wrap justify-center gap-4"
+        >
           {slide.strengths?.slice(4).map((strength, i) => (
             <motion.div
               key={i + 4}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                delay: 1.0 + i * 0.1,
+                delay: 1.2 + i * 0.1,
                 duration: 0.4,
                 ease: "easeOut",
               }}
               whileHover={{
-                scale: 1.05,
+                scale: 1.1,
+                y: -5,
                 transition: { duration: 0.2 },
               }}
-              className="bg-white p-5 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white px-6 py-4 rounded-full border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <span className="text-lg font-semibold text-gray-800">
                 {strength}
               </span>
             </motion.div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
