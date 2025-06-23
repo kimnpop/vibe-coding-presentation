@@ -87,6 +87,30 @@ export const slides: Slide[] = [
   },
   {
     type: "impact",
+    title: "그렇다면 AI는 어떻게 다를까?",
+    description: "현재 방식의 한계를 넘어서는 AI의 새로운 가능성을 살펴봅시다",
+    benefits: [
+      {
+        label: "단일 컨텍스트",
+        value: "0분",
+        detail: "컨텍스트 전환 시간 없음",
+      },
+      {
+        label: "핸드오프",
+        value: "0회",
+        detail: "단계 간 전환 불필요",
+      },
+      {
+        label: "통합 처리",
+        value: "100%",
+        detail: "전체 업무 흐름 처리",
+      },
+    ],
+    icon: TrendingUp,
+    subtitle: "경계 없는 AI 중심의 업무 방식",
+  },
+  {
+    type: "impact",
     title: "AI가 잘하는 것 vs 못하는 것",
     description: "AI의 강점과 한계를 명확히 구분해서 이해해봅시다",
     benefits: [
