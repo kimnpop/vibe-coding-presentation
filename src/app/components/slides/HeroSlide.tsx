@@ -76,7 +76,7 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-          className="text-lg md:text-xl font-light mb-8 text-gray-600"
+          className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
         >
           {slide.subtitle}
         </motion.h2>
@@ -85,7 +85,7 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-        className="text-lg md:text-xl mb-12 text-gray-600 font-light"
+        className="text-base md:text-lg mb-12 text-gray-500 font-light"
       >
         {slide.description}
       </motion.p>

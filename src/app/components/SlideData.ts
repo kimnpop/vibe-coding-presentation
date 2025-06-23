@@ -40,10 +40,10 @@ export interface Slide {
 export const slides: Slide[] = [
   {
     type: "hero",
-    title: "하던대로 하면 안 됩니다",
+    title: "하던대로 하면 안 됩니다.",
     subtitle: "바이브코딩으로 본 생산성의 전환",
     description:
-      "일하는 사람들의 단절된 업무와 반복적인 작업의 현실을 바꿔봅시다",
+      "일하는 사람들의 단절된 업무와 반복적인 작업의 현실을 바꿔봅시다.",
     icon: Eye,
   },
   {
