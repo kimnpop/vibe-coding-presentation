@@ -9,46 +9,6 @@ export const HeroSlide = ({ slide }: SlideComponentProps) => {
   // const IconComponent = slide.icon;
   return (
     <div className="text-center max-w-6xl mx-auto select-none relative min-h-screen flex flex-col justify-center">
-      {/* Floating background elements */}
-      <motion.div
-        animate={{
-          y: [0, -20, 0],
-          rotate: [0, 5, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-20 left-10 w-20 h-20 bg-gray-200 rounded-full opacity-30"
-      />
-      <motion.div
-        animate={{
-          y: [0, 15, 0],
-          rotate: [0, -5, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-        className="absolute top-40 right-20 w-16 h-16 bg-gray-300 rounded-full opacity-30"
-      />
-      <motion.div
-        animate={{
-          y: [0, -10, 0],
-          x: [0, 10, 0],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-        className="absolute bottom-40 left-20 w-12 h-12 bg-gray-100 rounded-full opacity-30"
-      />
-
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

@@ -127,16 +127,6 @@ export default function PitchDeck() {
         onPrev={prev}
         onGoToFirst={goToFirst}
       />
-
-      {/* Background floating shapes */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-100 rounded-full opacity-20"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gray-100 rounded-full opacity-15"></div>
-        <div className="absolute bottom-32 left-20 w-28 h-28 bg-gray-100 rounded-full opacity-20"></div>
-        <div className="absolute bottom-20 right-10 w-20 h-20 bg-gray-100 rounded-full opacity-15"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gray-100 rounded-full opacity-10"></div>
-        <div className="absolute top-1/3 right-1/3 w-12 h-12 bg-gray-100 rounded-full opacity-15"></div>
-      </div>
     </div>
   );
 }
