@@ -1,0 +1,10 @@
+export { HeroSlide } from "./HeroSlide";
+export { ProblemSlide } from "./ProblemSlide";
+export { QuestionSlide } from "./QuestionSlide";
+export { IssueSlide } from "./IssueSlide";
+export { ProcessSlide } from "./ProcessSlide";
+export { StrengthSlide } from "./StrengthSlide";
+export { LimitSlide } from "./LimitSlide";
+export { ImpactSlide } from "./ImpactSlide";
+export { CaseSlide } from "./CaseSlide";
+export { FutureSlide } from "./FutureSlide";
