@@ -19,8 +19,8 @@ export const ProcessSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl inline-block shadow-lg border border-purple-200">
-          <IconComponent size={56} className="text-purple-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -76,9 +76,9 @@ export const ProcessSlide = ({ slide }: SlideComponentProps) => {
                 x: 10,
                 transition: { duration: 0.2 },
               }}
-              className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <span className="text-lg font-semibold text-blue-800">
+              <span className="text-lg font-semibold text-gray-800">
                 {step}
               </span>
             </motion.div>
@@ -110,7 +110,7 @@ export const ProcessSlide = ({ slide }: SlideComponentProps) => {
                 x: -10,
                 transition: { duration: 0.2 },
               }}
-              className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <span className="text-lg font-semibold text-gray-700">
                 {step}

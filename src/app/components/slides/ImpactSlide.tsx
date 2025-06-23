@@ -19,8 +19,8 @@ export const ImpactSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl inline-block shadow-lg border border-red-200">
-          <IconComponent size={56} className="text-red-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -69,7 +69,7 @@ export const ImpactSlide = ({ slide }: SlideComponentProps) => {
             className="relative group"
           >
             {/* Background circle */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+            <div className="absolute inset-0 bg-gray-100 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
 
             {/* Main content */}
             <div className="relative bg-white p-8 rounded-3xl border-2 border-gray-200 shadow-xl group-hover:shadow-2xl transition-all duration-300">
@@ -95,7 +95,7 @@ export const ImpactSlide = ({ slide }: SlideComponentProps) => {
                     stroke="currentColor"
                     strokeWidth="8"
                     fill="none"
-                    className="text-red-500"
+                    className="text-gray-600"
                     strokeLinecap="round"
                     initial={{ strokeDasharray: "0 251.2" }}
                     animate={{ strokeDasharray: "251.2 251.2" }}

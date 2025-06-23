@@ -19,8 +19,8 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-2xl inline-block shadow-lg border border-yellow-200">
-          <IconComponent size={56} className="text-yellow-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -52,7 +52,7 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
 
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-100"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300"></div>
 
         <div className="space-y-8">
           {slide.issues?.map((issue, i) => (
@@ -74,7 +74,7 @@ export const IssueSlide = ({ slide }: SlideComponentProps) => {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-gray-300 rounded-full shadow-lg z-10"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-gray-400 rounded-full shadow-lg z-10"></div>
 
               {/* Content card */}
               <div className={`w-5/12 ${i % 2 === 0 ? "pr-8" : "pl-8"}`}>

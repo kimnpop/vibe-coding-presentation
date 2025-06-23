@@ -19,8 +19,8 @@ export const FutureSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl inline-block shadow-lg border border-orange-200">
-          <IconComponent size={64} className="text-orange-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={64} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -73,9 +73,9 @@ export const FutureSlide = ({ slide }: SlideComponentProps) => {
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
-              className="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-2xl border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gray-100 p-6 rounded-2xl border-2 border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <span className="text-lg font-semibold text-red-800">{app}</span>
+              <span className="text-lg font-semibold text-gray-700">{app}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -102,11 +102,9 @@ export const FutureSlide = ({ slide }: SlideComponentProps) => {
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
-              className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-2xl border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <span className="text-lg font-semibold text-green-800">
-                {app}
-              </span>
+              <span className="text-lg font-semibold text-gray-800">{app}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -123,7 +121,7 @@ export const FutureSlide = ({ slide }: SlideComponentProps) => {
           }}
           className="mt-8 inline-block"
         >
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 rounded-full shadow-2xl border-2 border-orange-400">
+          <div className="bg-gray-900 px-8 py-4 rounded-full shadow-2xl border-2 border-gray-700">
             <span className="text-lg font-bold text-white">
               🚀 {slide.highlight}
             </span>

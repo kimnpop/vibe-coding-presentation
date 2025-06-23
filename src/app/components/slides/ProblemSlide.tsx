@@ -15,8 +15,8 @@ export const ProblemSlide = ({ slide }: SlideComponentProps) => {
         transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl inline-block shadow-lg border border-red-200">
-          <IconComponent size={56} className="text-red-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -62,31 +62,9 @@ export const ProblemSlide = ({ slide }: SlideComponentProps) => {
               y: -5,
               transition: { duration: 0.2 },
             }}
-            className={`
-              p-6 rounded-2xl border-2 transition-all duration-300 shadow-lg
-              ${
-                i === 0
-                  ? "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:border-blue-300"
-                  : ""
-              }
-              ${
-                i === 1
-                  ? "bg-gradient-to-br from-green-50 to-green-100 border-green-200 hover:border-green-300"
-                  : ""
-              }
-              ${
-                i === 2
-                  ? "bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 hover:border-purple-300"
-                  : ""
-              }
-              ${
-                i === 3
-                  ? "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:border-orange-300"
-                  : ""
-              }
-            `}
+            className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <span className="text-lg md:text-xl font-medium leading-relaxed">
+            <span className="text-lg md:text-xl font-medium leading-relaxed text-gray-700">
               {point}
             </span>
           </motion.div>

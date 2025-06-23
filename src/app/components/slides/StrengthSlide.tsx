@@ -19,8 +19,8 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl inline-block shadow-lg border border-green-200">
-          <IconComponent size={56} className="text-green-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -52,7 +52,7 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
 
       <div className="relative">
         {/* Flow arrows */}
-        <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-300 to-transparent transform -translate-y-1/2 z-0"></div>
+        <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-300 transform -translate-y-1/2 z-0"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
           {slide.strengths?.map((strength, i) => (
@@ -74,12 +74,12 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
             >
               {/* Connection line for mobile */}
               {i < slide.strengths!.length - 1 && (
-                <div className="md:hidden absolute top-1/2 left-full w-4 h-0.5 bg-green-300 transform -translate-y-1/2 z-0"></div>
+                <div className="md:hidden absolute top-1/2 left-full w-4 h-0.5 bg-gray-300 transform -translate-y-1/2 z-0"></div>
               )}
 
-              <div className="bg-white p-6 rounded-2xl border-2 border-green-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative">
+              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative">
                 {/* Step number */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <div className="absolute -top-3 -left-3 w-8 h-8 bg-gray-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                   {i + 1}
                 </div>
 
@@ -91,8 +91,8 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
 
                 {/* Arrow for desktop */}
                 {i < slide.strengths!.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-6 w-12 h-0.5 bg-green-300 transform -translate-y-1/2">
-                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-green-300 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
+                  <div className="hidden md:block absolute top-1/2 -right-6 w-12 h-0.5 bg-gray-300 transform -translate-y-1/2">
+                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-300 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
                   </div>
                 )}
               </div>

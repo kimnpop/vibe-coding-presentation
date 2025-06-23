@@ -19,8 +19,8 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl inline-block shadow-lg border border-blue-200">
-          <IconComponent size={56} className="text-blue-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -69,14 +69,14 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
             className="relative group"
           >
             {/* Storyboard frame */}
-            <div className="bg-white p-6 rounded-2xl border-2 border-blue-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+            <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
               {/* Frame number */}
-              <div className="absolute top-2 right-2 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+              <div className="absolute top-2 right-2 w-6 h-6 bg-gray-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
                 {i + 1}
               </div>
 
               {/* Decorative corner */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-blue-300 rounded-tl-2xl"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-gray-300 rounded-tl-2xl"></div>
 
               <div className="text-center pt-4">
                 <span className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
@@ -99,7 +99,7 @@ export const CaseSlide = ({ slide }: SlideComponentProps) => {
           }}
           className="inline-block"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400">
+          <div className="bg-gray-900 px-8 py-4 rounded-full shadow-2xl border-2 border-gray-700">
             <span className="text-lg font-bold text-white">
               ✨ {slide.highlight}
             </span>

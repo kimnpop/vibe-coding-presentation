@@ -19,8 +19,8 @@ export const QuestionSlide = ({ slide }: SlideComponentProps) => {
         }}
         className="mb-12"
       >
-        <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-2xl inline-block shadow-lg border border-indigo-200">
-          <IconComponent size={56} className="text-indigo-700" />
+        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg border border-gray-200">
+          <IconComponent size={56} className="text-gray-800" />
         </div>
       </motion.div>
       <motion.h1
@@ -48,11 +48,11 @@ export const QuestionSlide = ({ slide }: SlideComponentProps) => {
         transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
         className="max-w-4xl mx-auto"
       >
-        <div className="bg-white p-8 rounded-3xl border-2 border-indigo-200 shadow-2xl relative overflow-hidden">
+        <div className="bg-white p-8 rounded-3xl border-2 border-gray-200 shadow-2xl relative overflow-hidden">
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-400 to-purple-400"></div>
-          <div className="absolute top-4 right-4 w-16 h-16 bg-indigo-100 rounded-full opacity-50"></div>
-          <div className="absolute bottom-4 left-4 w-12 h-12 bg-purple-100 rounded-full opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-2 bg-gray-400"></div>
+          <div className="absolute top-4 right-4 w-16 h-16 bg-gray-100 rounded-full opacity-50"></div>
+          <div className="absolute bottom-4 left-4 w-12 h-12 bg-gray-200 rounded-full opacity-50"></div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export const QuestionSlide = ({ slide }: SlideComponentProps) => {
               }}
               className="inline-block relative z-10"
             >
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 rounded-full shadow-xl border-2 border-indigo-400">
+              <div className="bg-gray-900 px-8 py-4 rounded-full shadow-xl border-2 border-gray-700">
                 <span className="text-xl md:text-2xl font-bold text-white">
                   ✨ {slide.highlight}
                 </span>
