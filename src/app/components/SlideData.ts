@@ -42,8 +42,7 @@ export const slides: Slide[] = [
     type: "hero",
     title: "하던대로 하면 안 됩니다.",
     subtitle: "바이브코딩으로 본 생산성의 전환",
-    description:
-      "일하는 사람들의 단절된 업무와 반복적인 작업의 현실을 바꿔봅시다.",
+    description: "우리가 일하는 방식, 정말 이대로 괜찮을까요?",
     icon: Eye,
   },
   {
