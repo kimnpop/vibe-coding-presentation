@@ -68,7 +68,7 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
         </motion.div>
 
         {/* Surrounding process cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {slide.strengths?.slice(1, 4).map((strength, i) => (
             <motion.div
               key={i + 1}
@@ -93,36 +93,75 @@ export const StrengthSlide = ({ slide }: SlideComponentProps) => {
           ))}
         </div>
 
-        {/* Bottom results */}
+        {/* Results section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.4, ease: "easeOut" }}
-          className="mt-8 flex flex-wrap justify-center gap-4"
+          className="mb-8"
         >
-          {slide.strengths?.slice(4).map((strength, i) => (
-            <motion.div
-              key={i + 4}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 1.2 + i * 0.1,
-                duration: 0.4,
-                ease: "easeOut",
-              }}
-              whileHover={{
-                scale: 1.1,
-                y: -5,
-                transition: { duration: 0.2 },
-              }}
-              className="bg-white px-6 py-4 rounded-full border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <span className="text-lg font-semibold text-gray-800">
-                {strength}
-              </span>
-            </motion.div>
-          ))}
+          <div className="flex flex-wrap justify-center gap-4">
+            {slide.strengths?.slice(4, 6).map((strength, i) => (
+              <motion.div
+                key={i + 4}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: 1.2 + i * 0.1,
+                  duration: 0.4,
+                  ease: "easeOut",
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  y: -5,
+                  transition: { duration: 0.2 },
+                }}
+                className="bg-white px-6 py-4 rounded-full border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <span className="text-lg font-semibold text-gray-800">
+                  {strength}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
+
+        {/* Why it's possible and limitations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Why possible */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
+            className="bg-green-50 p-6 rounded-2xl border-2 border-green-200 shadow-lg"
+          >
+            <div className="text-xl font-bold text-green-800 mb-3">
+              {slide.strengths?.[6]}
+            </div>
+            <div className="text-sm text-green-700 leading-relaxed">
+              UX, 기획, 개발 모두 이미 세상에 답이 있는 일들이라서
+              <br />
+              AI가 best practice를 찾아 적용하기 좋은 환경
+            </div>
+          </motion.div>
+
+          {/* Limitations */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
+            className="bg-red-50 p-6 rounded-2xl border-2 border-red-200 shadow-lg"
+          >
+            <div className="text-xl font-bold text-red-800 mb-3">
+              {slide.strengths?.[7]}
+            </div>
+            <div className="text-sm text-red-700 leading-relaxed">
+              아주 새로운 UX 패턴이나 세상에 없는 아이디어는
+              <br />
+              AI가 창조하기 어려운 영역
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
