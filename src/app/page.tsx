@@ -312,21 +312,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto relative">
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
-              animate={{
-                scale: 1,
-                rotate: 0,
-                y: [0, -10, 0],
-              }}
+              animate={{ scale: 1, rotate: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 300,
                 damping: 15,
-                y: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
               }}
               className="mb-16"
             >
@@ -336,63 +327,24 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 50, scale: 0.8 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: [0, -5, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                y: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
-              }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-5xl md:text-7xl font-black mb-8 text-gray-900 leading-tight"
             >
               {slide.title}
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, x: -100 }}
-              animate={{
-                opacity: 1,
-                x: [0, 5, 0],
-              }}
-              transition={{
-                delay: 0.3,
-                type: "spring",
-                stiffness: 150,
-                x: {
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.7,
-                },
-              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
               className="text-xl md:text-2xl font-light mb-12 text-gray-600"
             >
               {slide.subtitle}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
-              animate={{
-                opacity: 1,
-                y: [0, -3, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                duration: 0.4,
-                y: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                },
-              }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
               className="text-lg md:text-xl text-gray-500 font-light"
             >
               {slide.description}
@@ -405,21 +357,8 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0, y: -50 }}
-              animate={{
-                scale: 1,
-                y: [0, -8, 0],
-              }}
-              transition={{
-                delay: 0.1,
-                type: "spring",
-                stiffness: 300,
-                y: {
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.3,
-                },
-              }}
+              animate={{ scale: 1, y: 0 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
               className="mb-12"
             >
               <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
@@ -428,21 +367,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, x: -200 }}
-              animate={{
-                opacity: 1,
-                x: [0, 3, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                x: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
-              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -450,21 +376,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, x: 200 }}
-                animate={{
-                  opacity: 1,
-                  x: [0, -4, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  x: {
-                    duration: 3.8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.7,
-                  },
-                }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -472,20 +385,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                delay: 0.4,
-                duration: 0.3,
-                scale: {
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -506,10 +407,10 @@ export default function PitchDeck() {
                     type: "spring",
                     stiffness: 200,
                     y: {
-                      duration: 3 + i * 0.5,
+                      duration: 1.2 + i * 0.1,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.2 + i * 0.2,
+                      delay: 0.2 + i * 0.03,
                     },
                   }}
                   className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -528,21 +429,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotate: 180 }}
-              animate={{
-                scale: 1,
-                rotate: [0, 5, 0, -5, 0],
-              }}
+              animate={{ scale: 1, rotate: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 250,
                 damping: 12,
-                rotate: {
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
               }}
               className="mb-12"
             >
@@ -552,21 +444,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: -100, scale: 1.2 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                scale: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.8,
-                },
-              }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -574,22 +453,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, y: 100, scale: 0.8 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: [0, 3, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  y: {
-                    duration: 3.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  },
-                }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -597,22 +462,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, rotateX: 90 }}
-              animate={{
-                opacity: 1,
-                rotateX: 0,
-                y: [0, -2, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 150,
-                y: {
-                  duration: 4.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.2,
-                },
-              }}
+              animate={{ opacity: 1, rotateX: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 150 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -630,10 +481,10 @@ export default function PitchDeck() {
                 stiffness: 200,
                 damping: 15,
                 y: {
-                  duration: 3,
+                  duration: 1.5,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 1.5,
+                  delay: 0.3,
                 },
               }}
               className="inline-block"
@@ -652,21 +503,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
               initial={{ scale: 0, y: 100 }}
-              animate={{
-                scale: 1,
-                y: [0, -6, 0],
-              }}
+              animate={{ scale: 1, y: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 400,
                 damping: 20,
-                y: {
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                },
               }}
               className="mb-12"
             >
@@ -676,21 +518,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.03, 1],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 300,
-                scale: {
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -698,21 +527,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, rotateZ: -10 }}
-                animate={{
-                  opacity: 1,
-                  rotateZ: [0, 2, 0, -2, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  rotateZ: {
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.8,
-                  },
-                }}
+                animate={{ opacity: 1, rotateZ: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -720,21 +536,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, x: 150 }}
-              animate={{
-                opacity: 1,
-                x: [0, 3, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                x: {
-                  duration: 4.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                },
-              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -755,10 +558,10 @@ export default function PitchDeck() {
                     stiffness: 250,
                     damping: 15,
                     y: {
-                      duration: 3.5 + i * 0.3,
+                      duration: 1.3 + i * 0.1,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.2 + i * 0.2,
+                      delay: 0.4 + i * 0.08,
                     },
                   }}
                   className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -785,21 +588,8 @@ export default function PitchDeck() {
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotateX: 90 }}
-              animate={{
-                scale: 1,
-                rotateX: [0, 5, 0, -5, 0],
-              }}
-              transition={{
-                delay: 0.1,
-                type: "spring",
-                stiffness: 350,
-                rotateX: {
-                  duration: 7,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
-              }}
+              animate={{ scale: 1, rotateX: 0 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 350 }}
               className="mb-12"
             >
               <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
@@ -808,21 +598,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: -150 }}
-              animate={{
-                opacity: 1,
-                y: [0, -4, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                y: {
-                  duration: 4.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.7,
-                },
-              }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -830,21 +607,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, y: 150 }}
-                animate={{
-                  opacity: 1,
-                  y: [0, 2, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  y: {
-                    duration: 3.6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.9,
-                  },
-                }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -852,21 +616,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, scale: 1.1 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.01, 1],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                scale: {
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.1,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -888,10 +639,10 @@ export default function PitchDeck() {
                     stiffness: 300,
                     damping: 20,
                     y: {
-                      duration: 3.2 + i * 0.4,
+                      duration: 1.4 + i * 0.15,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.3 + i * 0.1,
+                      delay: 0.3 + i * 0.05,
                     },
                   }}
                   className="bg-gray-100 px-5 py-3 rounded-full text-sm font-medium text-gray-800 hover:bg-gray-200 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -908,21 +659,8 @@ export default function PitchDeck() {
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotateY: 90 }}
-              animate={{
-                scale: 1,
-                rotateY: [0, 8, 0, -8, 0],
-              }}
-              transition={{
-                delay: 0.1,
-                type: "spring",
-                stiffness: 300,
-                rotateY: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                },
-              }}
+              animate={{ scale: 1, rotateY: 0 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
               className="mb-12"
             >
               <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
@@ -931,21 +669,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, x: -300 }}
-              animate={{
-                opacity: 1,
-                x: [0, 4, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                x: {
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.8,
-                },
-              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -953,21 +678,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, x: 300 }}
-                animate={{
-                  opacity: 1,
-                  x: [0, -3, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  x: {
-                    duration: 4.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  },
-                }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -975,21 +687,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, y: 100 }}
-              animate={{
-                opacity: 1,
-                y: [0, -2, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                y: {
-                  duration: 4.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.2,
-                },
-              }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -1011,10 +710,10 @@ export default function PitchDeck() {
                     stiffness: 250,
                     damping: 15,
                     y: {
-                      duration: 3.5 + i * 0.3,
+                      duration: 1.2 + i * 0.1,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.4 + i * 0.15,
+                      delay: 0.4 + i * 0.06,
                     },
                   }}
                   className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -1033,21 +732,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotate: -90 }}
-              animate={{
-                scale: 1,
-                rotate: [0, 3, 0, -3, 0],
-              }}
+              animate={{ scale: 1, rotate: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 280,
                 damping: 15,
-                rotate: {
-                  duration: 6.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                },
               }}
               className="mb-12"
             >
@@ -1057,21 +747,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, scale: 1.3 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 250,
-                scale: {
-                  duration: 4.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 250 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -1079,22 +756,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, y: -80, rotateX: 45 }}
-                animate={{
-                  opacity: 1,
-                  y: [0, -2, 0],
-                  rotateX: 0,
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  y: {
-                    duration: 4.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.8,
-                  },
-                }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -1102,22 +765,8 @@ export default function PitchDeck() {
             )}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{
-                opacity: 1,
-                y: [0, -3, 0],
-                scale: 1,
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                y: {
-                  duration: 3.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                },
-              }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8 shadow-sm hover:shadow-md"
             >
               <p className="text-lg md:text-xl text-gray-700 font-light">
@@ -1126,21 +775,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.p
               initial={{ opacity: 0, x: -100 }}
-              animate={{
-                opacity: 1,
-                x: [0, 2, 0],
-              }}
-              transition={{
-                delay: 0.5,
-                type: "spring",
-                stiffness: 200,
-                x: {
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.2,
-                },
-              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl text-gray-500 font-light mb-8"
             >
               {slide.description}
@@ -1162,10 +798,10 @@ export default function PitchDeck() {
                       type: "spring",
                       stiffness: 200,
                       y: {
-                        duration: 3.2 + i * 0.4,
+                        duration: 1.3 + i * 0.15,
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: 1.4 + i * 0.2,
+                        delay: 0.5 + i * 0.08,
                       },
                     }}
                     className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
@@ -1185,21 +821,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-5xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotateZ: 180 }}
-              animate={{
-                scale: 1,
-                rotateZ: [0, 5, 0, -5, 0],
-              }}
+              animate={{ scale: 1, rotateZ: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 300,
                 damping: 15,
-                rotateZ: {
-                  duration: 7.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
               }}
               className="mb-12"
             >
@@ -1209,21 +836,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: -200 }}
-              animate={{
-                opacity: 1,
-                y: [0, -3, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                y: {
-                  duration: 4.6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.7,
-                },
-              }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -1231,21 +845,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, y: 200 }}
-                animate={{
-                  opacity: 1,
-                  y: [0, 2, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  y: {
-                    duration: 4.4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.9,
-                  },
-                }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -1253,21 +854,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.01, 1],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                scale: {
-                  duration: 5.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.1,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -1288,10 +876,10 @@ export default function PitchDeck() {
                     stiffness: 250,
                     damping: 15,
                     y: {
-                      duration: 3.8 + i * 0.3,
+                      duration: 1.4 + i * 0.1,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.3 + i * 0.2,
+                      delay: 0.3 + i * 0.06,
                     },
                   }}
                   className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -1318,21 +906,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotateX: -90 }}
-              animate={{
-                scale: 1,
-                rotateX: [0, 3, 0, -3, 0],
-              }}
+              animate={{ scale: 1, rotateX: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 300,
                 damping: 15,
-                rotateX: {
-                  duration: 6.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                },
               }}
               className="mb-12"
             >
@@ -1342,21 +921,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, scale: 0.6 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.03, 1],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 250,
-                scale: {
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 250 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -1364,21 +930,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, x: -150 }}
-                animate={{
-                  opacity: 1,
-                  x: [0, 3, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 200,
-                  x: {
-                    duration: 4.8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.8,
-                  },
-                }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -1386,21 +939,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, rotateZ: 15 }}
-              animate={{
-                opacity: 1,
-                rotateZ: [0, 1, 0, -1, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 150,
-                rotateZ: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                },
-              }}
+              animate={{ opacity: 1, rotateZ: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 150 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -1422,10 +962,10 @@ export default function PitchDeck() {
                     stiffness: 250,
                     damping: 15,
                     y: {
-                      duration: 3.6 + i * 0.3,
+                      duration: 1.2 + i * 0.1,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.2 + i * 0.15,
+                      delay: 0.3 + i * 0.05,
                     },
                   }}
                   className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
@@ -1451,10 +991,10 @@ export default function PitchDeck() {
                   stiffness: 200,
                   damping: 15,
                   y: {
-                    duration: 3.2,
+                    duration: 1.6,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 1.8,
+                    delay: 0.8,
                   },
                 }}
                 className="mt-8 inline-block"
@@ -1474,21 +1014,12 @@ export default function PitchDeck() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0, rotateY: -180 }}
-              animate={{
-                scale: 1,
-                rotateY: [0, 10, 0, -10, 0],
-              }}
+              animate={{ scale: 1, rotateY: 0 }}
               transition={{
                 delay: 0.1,
                 type: "spring",
                 stiffness: 300,
                 damping: 15,
-                rotateY: {
-                  duration: 9,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                },
               }}
               className="mb-12"
             >
@@ -1498,28 +1029,8 @@ export default function PitchDeck() {
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, scale: 0.4, y: 100 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.02, 1],
-                y: [0, -2, 0],
-              }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 250,
-                scale: {
-                  duration: 5.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.7,
-                },
-                y: {
-                  duration: 4.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.9,
-                },
-              }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 250 }}
               className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
             >
               {slide.title}
@@ -1527,28 +1038,8 @@ export default function PitchDeck() {
             {slide.subtitle && (
               <motion.h2
                 initial={{ opacity: 0, scale: 1.5, y: -100 }}
-                animate={{
-                  opacity: 1,
-                  scale: [1, 1.01, 1],
-                  y: [0, 2, 0],
-                }}
-                transition={{
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 250,
-                  scale: {
-                    duration: 6.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1.1,
-                  },
-                  y: {
-                    duration: 4.6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1.3,
-                  },
-                }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 250 }}
                 className="text-lg md:text-xl font-light mb-8 text-gray-600"
               >
                 {slide.subtitle}
@@ -1556,28 +1047,8 @@ export default function PitchDeck() {
             )}
             <motion.p
               initial={{ opacity: 0, x: 200, rotateZ: -10 }}
-              animate={{
-                opacity: 1,
-                x: [0, 2, 0],
-                rotateZ: [0, 1, 0, -1, 0],
-              }}
-              transition={{
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200,
-                x: {
-                  duration: 4.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.5,
-                },
-                rotateZ: {
-                  duration: 7.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.7,
-                },
-              }}
+              animate={{ opacity: 1, x: 0, rotateZ: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
               className="text-lg md:text-xl mb-10 text-gray-600 font-light"
             >
               {slide.description}
@@ -1599,10 +1070,10 @@ export default function PitchDeck() {
                     stiffness: 300,
                     damping: 20,
                     y: {
-                      duration: 3.4 + i * 0.4,
+                      duration: 1.3 + i * 0.15,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: 1.9 + i * 0.2,
+                      delay: 0.6 + i * 0.08,
                     },
                   }}
                   className="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -1628,10 +1099,10 @@ export default function PitchDeck() {
                   stiffness: 200,
                   damping: 15,
                   y: {
-                    duration: 3.8,
+                    duration: 1.8,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 2.5,
+                    delay: 1.2,
                   },
                 }}
                 className="mt-8 inline-block"
