@@ -113,7 +113,8 @@ export default function PitchDeck() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 0.3 }}
-          className="flex flex-col items-center justify-center w-full h-[70vh] select-none px-8 relative z-10"
+          className="flex flex-col items-center justify-center w-full h-[70vh] px-8 relative z-10"
+          style={{ userSelect: "text", cursor: "default" }}
         >
           {renderSlide()}
         </motion.div>
