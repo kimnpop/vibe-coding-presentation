@@ -1,85 +1,74 @@
 import { motion } from "framer-motion";
 import { Slide } from "../SlideData";
+import React from "react";
 
 interface SlideComponentProps {
   slide: Slide;
 }
 
 export const LimitSlide = ({ slide }: SlideComponentProps) => {
-  // const IconComponent = slide.icon;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="text-center max-w-4xl mx-auto select-none">
-      <motion.div
-        initial={{ scale: 0, rotate: -90 }}
-        animate={{ scale: 1, rotate: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.4,
-          ease: "easeOut",
-        }}
-        className="mb-12"
-      >
-        <div className="bg-gray-100 p-6 rounded-2xl inline-block shadow-lg">
-          {/* 아이콘 영역 제거 */}
-        </div>
-      </motion.div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="max-w-7xl w-full mx-auto select-none flex flex-col justify-center items-center h-full text-center px-4"
+    >
       <motion.h1
-        initial={{ opacity: 0, scale: 1.3 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
+        variants={itemVariants}
         className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
       >
         {slide.title}
       </motion.h1>
-      {slide.subtitle && (
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-          className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
-        >
-          {slide.subtitle}
-        </motion.h2>
-      )}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
-        className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8 shadow-sm hover:shadow-md"
+      <motion.h2
+        variants={itemVariants}
+        className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
       >
-        <p className="text-lg md:text-xl text-gray-700 font-light">
-          {slide.limit}
-        </p>
-      </motion.div>
+        {slide.subtitle}
+      </motion.h2>
       <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-        className="text-base md:text-lg mb-12 text-gray-500 font-light"
+        variants={itemVariants}
+        className="text-base md:text-lg mb-12 text-gray-500 font-light max-w-4xl"
       >
         {slide.description}
       </motion.p>
-      {slide.solutions && (
-        <div className="space-y-3">
-          {slide.solutions.map((solution, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 100, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{
-                delay: 0.6 + i * 0.1,
-                duration: 0.4,
-                ease: "easeOut",
-              }}
-              className="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md"
+
+      <motion.div
+        variants={itemVariants}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl"
+      >
+        {slide.points?.map((point, index) => {
+          const PointIcon = point.icon;
+          return (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center border border-gray-200/80 shadow-lg"
             >
-              <span className="text-base md:text-lg text-gray-700 font-light">
-                {solution}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      )}
-    </div>
+              <div className="bg-red-100 rounded-full p-4 mb-4">
+                <PointIcon className="w-10 h-10 text-red-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 text-center">
+                {point.text}
+              </h3>
+            </div>
+          );
+        })}
+      </motion.div>
+    </motion.div>
   );
 };

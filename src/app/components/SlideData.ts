@@ -7,7 +7,6 @@ import {
   Users,
   GitBranch,
   Eye,
-  Workflow,
   CheckCircle,
   ConciergeBell,
   Bot,
@@ -22,6 +21,7 @@ import {
   Code,
   ExternalLink,
   Sparkles,
+  PieChart,
 } from "lucide-react";
 
 export interface Slide {
@@ -80,6 +80,12 @@ export interface Slide {
     aiRole: string;
     icon: React.ComponentType<{ className?: string }>;
   }>;
+  workDistributionData?: Array<{
+    name: string;
+    value: number;
+    color: string;
+  }>;
+  source?: string;
 }
 
 export const slides: Slide[] = [
@@ -281,35 +287,17 @@ export const slides: Slide[] = [
     highlight: "AI 단독 실행 가능성 입증",
   },
   {
-    type: "strength",
-    title: "AI 중심 업무의 실제 모습",
+    type: "workDistribution",
+    title: "우리가 하는 일의 진짜 모습",
+    subtitle: "업무의 58%는 '업무를 위한 업무'입니다",
     description:
-      "AI와 함께 일할 때 실제로 어떤 모습인지 구체적인 시나리오로 살펴봅시다",
-    strengths: [
-      "🎯 '스마트임상시험 플랫폼을 만들어줘' → AI가 전체 기획부터 시작",
-      "📋 PRD, 와이어프레임, UI 디자인까지 자동 생성",
-      "💻 프론트엔드 + 백엔드 코드 동시 구현",
-      "🌊 한 번의 대화로 전체 프로세스 완성",
-      "💬 중간 산출물이나 회의 없이 바로 결과물",
-      "⚡ 3주 걸릴 일을 3일 만에 완성",
+      "지금까지 우리는 전체의 42%를 차지하는 '핵심 업무'의 효율을 높이는 새로운 방식을 이야기했습니다.\n하지만 생산성을 가로막는 더 큰 문제는 보이지 않는 곳에 있습니다.",
+    icon: PieChart,
+    workDistributionData: [
+      { name: "핵심 업무 (전략+전문)", value: 42, color: "#3b82f6" },
+      { name: "업무를 위한 업무", value: 58, color: "#cbd5e1" },
     ],
-    icon: Workflow,
-    subtitle: "구체적인 AI 업무 시나리오",
-  },
-  {
-    type: "process",
-    title: "우리는 두 가지 일을 한다",
-    description: "현실은 대부분 2번에 시간과 리소스를 씁니다",
-    steps: [
-      "🎯 1️⃣ 제품을 만드는 일",
-      "⚙️ 2️⃣ 제품을 잘 만들기 위한 일",
-      "📄 문서 작성",
-      "🔄 운영 관리",
-      "📏 기준 정의",
-      "💬 커뮤니케이션",
-    ],
-    icon: Users,
-    subtitle: "AI가 잘하는 일과 사람이 해야 할 일",
+    source: "Source: Asana, Anatomy of Work Index 2022 (via hrmonline.com.au)",
   },
   {
     type: "future",

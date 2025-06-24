@@ -8,14 +8,12 @@ import {
   ProblemSlide,
   QuestionSlide,
   IssueSlide,
-  ProcessSlide,
-  StrengthSlide,
-  LimitSlide,
   ImpactSlide,
   CaseSlide,
   FutureSlide,
   ComparisonSlide,
   ActionSlide,
+  WorkDistributionSlide,
 } from "./components/slides";
 
 export default function PitchDeck() {
@@ -85,26 +83,22 @@ export default function PitchDeck() {
         return <HeroSlide slide={slide} />;
       case "problem":
         return <ProblemSlide slide={slide} />;
-      case "question":
-        return <QuestionSlide slide={slide} />;
       case "issue":
         return <IssueSlide slide={slide} />;
-      case "process":
-        return <ProcessSlide slide={slide} />;
-      case "strength":
-        return <StrengthSlide slide={slide} />;
-      case "limit":
-        return <LimitSlide slide={slide} />;
       case "impact":
         return <ImpactSlide slide={slide} />;
-      case "case":
-        return <CaseSlide slide={slide} />;
-      case "future":
-        return <FutureSlide slide={slide} />;
       case "comparison":
         return <ComparisonSlide slide={slide} />;
       case "action":
         return <ActionSlide slide={slide} />;
+      case "case":
+        return <CaseSlide slide={slide} />;
+      case "future":
+        return <FutureSlide slide={slide} />;
+      case "question":
+        return <QuestionSlide slide={slide} />;
+      case "workDistribution":
+        return <WorkDistributionSlide slide={slide} />;
       default:
         return null;
     }
