@@ -392,6 +392,7 @@ export const slides: Slide[] = [
   {
     type: "codex",
     title: "이런 것도 해보고 있어요",
+    subtitle: "Appendix",
     icon: Binary,
     description: "AI에게 모든 개발을 순서 없이, 병렬로 한 번에 맡겨보는 실험.",
     links: [

@@ -31,10 +31,17 @@ export const CodexSlide = ({ slide }: SlideComponentProps) => {
     >
       <motion.h1
         variants={itemVariants}
-        className="text-4xl md:text-6xl font-black mb-8 text-gray-900"
+        className="text-4xl md:text-6xl font-black mb-4 text-gray-900"
       >
         {slide.title}
       </motion.h1>
+
+      <motion.h2
+        variants={itemVariants}
+        className="text-lg md:text-xl font-semibold mb-8 text-gray-500"
+      >
+        {slide.subtitle}
+      </motion.h2>
 
       <motion.p
         variants={itemVariants}
