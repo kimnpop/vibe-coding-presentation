@@ -14,6 +14,7 @@ import {
   ActionSlide,
   WorkDistributionSlide,
   MindsetSlide,
+  CodexSlide,
 } from "./components/slides";
 
 export default function PitchDeck() {
@@ -99,6 +100,8 @@ export default function PitchDeck() {
         return <WorkDistributionSlide slide={slide} />;
       case "mindset":
         return <MindsetSlide slide={slide} />;
+      case "codex":
+        return <CodexSlide slide={slide} />;
       default:
         return null;
     }

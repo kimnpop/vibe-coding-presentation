@@ -10,3 +10,4 @@ export * from "./ActionSlide";
 export * from "./WorkDistributionSlide";
 export * from "./StrengthSlide";
 export * from "./MindsetSlide";
+export * from "./CodexSlide";

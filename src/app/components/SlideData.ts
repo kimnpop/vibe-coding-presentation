@@ -25,6 +25,7 @@ import {
   FileX2,
   Github,
   BrainCircuit,
+  Binary,
 } from "lucide-react";
 
 export interface Slide {
@@ -380,6 +381,19 @@ export const slides: Slide[] = [
         metricLabel: "가설 검증 사이클",
         text: "'어떻게'의 제약을 AI로 제거하고, '무엇을, 왜'에만 집중하여 실패 비용 없이 무한에 가깝게 실험하고 학습합니다.",
         icon: Sparkles,
+      },
+    ],
+  },
+  {
+    type: "codex",
+    title: "이런 것도 해보고 있어요",
+    icon: Binary,
+    description: "AI에게 모든 개발을 순서 없이, 병렬로 한 번에 맡겨보는 실험.",
+    links: [
+      {
+        text: "OpenAI Codex에 대해 더 알아보기",
+        url: "https://openai.com/index/introducing-codex/",
+        icon: ExternalLink,
       },
     ],
   },
