@@ -11,3 +11,4 @@ export * from "./WorkDistributionSlide";
 export * from "./StrengthSlide";
 export * from "./MindsetSlide";
 export * from "./CodexSlide";
+export * from "./MemeSlide";

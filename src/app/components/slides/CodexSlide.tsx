@@ -60,7 +60,7 @@ export const CodexSlide = ({ slide }: SlideComponentProps) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center rounded-full bg-white py-3 pl-8 pr-4 text-lg font-bold text-gray-800 ring-1 ring-inset ring-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-100 hover:shadow-lg"
+                className="group inline-flex items-center justify-center rounded-full bg-white py-3 pl-8 pr-4 text-lg font-bold text-gray-800 ring-1 ring-inset ring-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-100"
               >
                 <span>{link.text}</span>
                 <span className="ml-4 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-colors duration-200 ease-in-out">

@@ -26,6 +26,7 @@ import {
   Github,
   BrainCircuit,
   Binary,
+  ArrowRightIcon,
 } from "lucide-react";
 
 export interface Slide {
@@ -33,6 +34,7 @@ export interface Slide {
   title: string;
   subtitle?: string;
   description?: string;
+  image?: string;
   links?: Array<{
     text: string;
     url: string;
@@ -397,10 +399,16 @@ export const slides: Slide[] = [
     description: "AI에게 모든 개발을 순서 없이, 병렬로 한 번에 맡겨보는 실험.",
     links: [
       {
-        text: "OpenAI Codex에 대해 더 알아보기",
-        url: "https://openai.com/index/introducing-codex/",
-        icon: ExternalLink,
+        text: "OpenAI Codex 알아보기",
+        url: "https://openai.com/blog/openai-codex/",
+        icon: ArrowRightIcon,
       },
     ],
+  },
+  {
+    type: "meme",
+    title: "살아남아야 한다...",
+    image: "/survival-meme.png",
+    icon: Binary,
   },
 ];
