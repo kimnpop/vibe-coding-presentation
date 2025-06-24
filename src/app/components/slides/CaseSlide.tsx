@@ -1,109 +1,123 @@
 import { motion } from "framer-motion";
 import { Slide } from "../SlideData";
+import React from "react";
+import { ChevronRight } from "lucide-react";
 
 interface SlideComponentProps {
   slide: Slide;
 }
 
 export const CaseSlide = ({ slide }: SlideComponentProps) => {
-  // const IconComponent = slide.icon;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="text-center max-w-5xl mx-auto select-none">
-      <motion.div
-        initial={{ scale: 0, rotateX: -90 }}
-        animate={{ scale: 1, rotateX: 0 }}
-        transition={{
-          delay: 0.1,
-          duration: 0.4,
-          ease: "easeOut",
-        }}
-        className="mb-12"
-      >
-        {/* 아이콘 영역 제거 */}
-      </motion.div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="max-w-7xl w-full mx-auto select-none flex flex-col justify-center items-center h-full text-center px-4"
+    >
       <motion.h1
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
+        variants={itemVariants}
         className="text-4xl md:text-6xl font-black mb-6 text-gray-900"
       >
         {slide.title}
       </motion.h1>
-      {slide.subtitle && (
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-          className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
-        >
-          {slide.subtitle}
-        </motion.h2>
-      )}
+      <motion.h2
+        variants={itemVariants}
+        className="text-xl md:text-2xl font-semibold mb-4 text-gray-800"
+      >
+        {slide.subtitle}
+      </motion.h2>
       <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-        className="text-base md:text-lg mb-12 text-gray-500 font-light"
+        variants={itemVariants}
+        className="text-base md:text-lg mb-12 text-gray-500 font-light max-w-4xl"
       >
         {slide.description}
       </motion.p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {slide.results?.map((result, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              delay: 0.5 + i * 0.15,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            whileHover={{
-              scale: 1.05,
-              y: -5,
-              transition: { duration: 0.2 },
-            }}
-            className="relative group"
-          >
-            {/* Storyboard frame */}
-            <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-xl group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
-              {/* Frame number */}
-              <div className="absolute top-2 right-2 w-6 h-6 bg-gray-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                {i + 1}
+      <motion.div variants={itemVariants} className="w-full max-w-6xl">
+        {/* Row 1: Icons and Arrows */}
+        <div className="flex items-center justify-center">
+          {slide.processSteps?.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="flex flex-col items-center text-center w-28">
+                <div className="bg-gray-100 rounded-full p-4">
+                  <step.icon className="w-8 h-8 text-gray-700" />
+                </div>
               </div>
+              {slide.processSteps && index < slide.processSteps.length - 1 && (
+                <div className="mx-2 md:mx-4">
+                  <ChevronRight className="w-8 h-8 text-gray-300" />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
 
-              {/* Decorative corner */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-gray-300 rounded-tl-2xl"></div>
-
-              <div className="text-center pt-4">
-                <span className="text-base md:text-lg text-gray-700 font-medium leading-relaxed">
-                  {result}
+        {/* Row 2: Captions */}
+        <div className="flex items-start justify-center mt-3">
+          {slide.processSteps?.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="flex flex-col items-center text-center w-28">
+                <span className="text-sm font-semibold text-gray-800">
+                  {step.name}
                 </span>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              {slide.processSteps && index < slide.processSteps.length - 1 && (
+                <div className="mx-2 md:mx-4">
+                  <div className="w-8 h-8" /> {/* Spacer */}
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </motion.div>
 
-      {slide.highlight && (
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0, y: 50, rotate: 10 }}
-          animate={{ scale: 1, opacity: 1, y: 0, rotate: 0 }}
-          transition={{
-            delay: 0.9,
-            duration: 0.4,
-            ease: "easeOut",
-          }}
-          className="inline-block"
-        >
-          <div className="bg-gray-900 px-8 py-4 rounded-full shadow-2xl border-2 border-gray-700">
-            <span className="text-lg font-bold text-white">
-              ✨ {slide.highlight}
-            </span>
-          </div>
-        </motion.div>
+      {slide.links && (
+        <div className="flex w-full justify-center space-x-4 pt-12">
+          {slide.links.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center rounded-full bg-white py-2 pl-6 pr-2 text-base font-bold text-gray-800 ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-in-out hover:bg-gray-100"
+            >
+              <span>{link.text}</span>
+              <span className="ml-4 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 transition-colors duration-200 ease-in-out">
+                <svg
+                  className="h-5 w-5 text-gray-600 transition-colors duration-200 ease-in-out group-hover:text-black"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                  />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
       )}
-    </div>
+    </motion.div>
   );
 };

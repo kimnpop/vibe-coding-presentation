@@ -17,6 +17,11 @@ import {
   Puzzle,
   CopySlash,
   Hourglass,
+  Lightbulb,
+  Palette,
+  Code,
+  ExternalLink,
+  Sparkles,
 } from "lucide-react";
 
 export interface Slide {
@@ -24,6 +29,11 @@ export interface Slide {
   title: string;
   subtitle?: string;
   description?: string;
+  links?: Array<{
+    text: string;
+    url: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>;
   icon: React.ComponentType<{ size?: number; className?: string }>;
   points?: Array<{
     text: string;
@@ -44,9 +54,32 @@ export interface Slide {
     value: string;
     detail?: string;
   }>;
+  gaps?: Array<{
+    role: string;
+    icon: React.ComponentType<{ className?: string }>;
+    can: string;
+    cannot: string;
+  }>;
+  overlaps?: {
+    domains: string[];
+    roles: Array<{
+      name: string;
+      competencies: number[];
+    }>;
+  };
   results?: string[];
   applications?: string[];
   highlight?: string;
+  processSteps?: Array<{
+    name: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>;
+  experiments?: Array<{
+    title: string;
+    team: string;
+    aiRole: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>;
 }
 
 export const slides: Slide[] = [
@@ -86,7 +119,7 @@ export const slides: Slide[] = [
     title: "진짜 문제는 다른 곳에 있습니다",
     subtitle: "개별 업무 최적화의 함정",
     description:
-      "AI를 비서나 인턴처럼 쓰는 것은 내 업무 영역 안에서만 효율을 높일 뿐입니다. 하지만 진짜 비효율은 사람과 사람, 팀과 팀 사이의 '경계'에서 발생합니다.",
+      "AI를 비서나 인턴처럼 쓰는 것은 내 업무 영역 안에서만 효율을 높일 뿐입니다.\n하지만 진짜 비효율은 사람과 사람, 팀과 팀 사이의 '경계'에서 발생합니다.",
     issues: [
       {
         label: "컨텍스트 전환 비용",
@@ -187,6 +220,67 @@ export const slides: Slide[] = [
     subtitle: "AI의 능력과 한계를 정확히 파악하기",
   },
   {
+    type: "action",
+    title: "우리가 하는 일, AI가 더 잘합니다.",
+    subtitle: "AI가 더 잘하는 일, 경계를 허무는 데 써야 합니다.",
+    description:
+      "AI의 통합 능력을 활용해, 의도적으로 '역할 공백'을 만들고 그 자리를 AI에게 맡기는 실험이 필요합니다.",
+    icon: Users,
+    experiments: [
+      {
+        title: "A 기능",
+        team: "기획 + 디자인",
+        aiRole: "개발",
+        icon: Code,
+      },
+      {
+        title: "B 기능",
+        team: "기획 + 개발",
+        aiRole: "디자인",
+        icon: Palette,
+      },
+      {
+        title: "C 기능",
+        team: "디자인 + 개발",
+        aiRole: "기획",
+        icon: Lightbulb,
+      },
+    ],
+  },
+  {
+    type: "case",
+    title: "사례: 스마트임상시험 프로토타입",
+    subtitle: "AI 단독으로 실행한 End-to-End 프로세스",
+    description:
+      "단 하나의 목표 설명에서 시작해, 커뮤니케이션 없이 기획, 디자인, 코드 생성을 거쳐 프로토타입을 완성하며 AI의 통합 실행 능력을 입증했습니다.",
+    links: [
+      {
+        text: "프로토타입 보기",
+        url: "https://ggzklqfy6p9trgpd9.lite.vusercontent.net/",
+        icon: ExternalLink,
+      },
+      {
+        text: "개발 과정 보기",
+        url: "https://v0.dev/chat/image-analysis-FESFfl45xHY",
+        icon: FileText,
+      },
+      {
+        text: "개선된 과정 보기",
+        url: "https://v0.dev/chat/notion-audio-transcription-qlS9HrgOUIr",
+        icon: Sparkles,
+      },
+    ],
+    processSteps: [
+      { name: "목표 설정", icon: Target },
+      { name: "PRD 생성", icon: FileText },
+      { name: "UX/UI 디자인", icon: Palette },
+      { name: "코드 구현", icon: Code },
+      { name: "프로토타입 완성", icon: CheckCircle },
+    ],
+    icon: Rocket,
+    highlight: "AI 단독 실행 가능성 입증",
+  },
+  {
     type: "strength",
     title: "AI 중심 업무의 실제 모습",
     description:
@@ -201,22 +295,6 @@ export const slides: Slide[] = [
     ],
     icon: Workflow,
     subtitle: "구체적인 AI 업무 시나리오",
-  },
-  {
-    type: "case",
-    title: "사례: 스마트임상시험 프로토타입 실험",
-    subtitle: "v0.dev + 생성형 AI로 전체 프로세스 실험",
-    description:
-      "목적 설명 → PRD → UX → 디자인 → 코드 생성까지\n\n커뮤니케이션 거의 없이 프로토타입 완성\n\n실제 개발까진 안 갔지만, 초기 기획·구현까지 AI 단독 실행 가능성 입증",
-    results: [
-      "💡 목적 설명부터 시작",
-      "📋 PRD 자동 생성",
-      "🎨 UX/UI 설계",
-      "💻 코드 자동 생성",
-      "🚧 실제 개발까지는 미완성이지만 가능성 입증",
-    ],
-    icon: Rocket,
-    highlight: "AI 단독 실행 가능성 입증",
   },
   {
     type: "process",

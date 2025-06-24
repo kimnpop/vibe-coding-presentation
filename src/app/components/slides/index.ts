@@ -9,3 +9,4 @@ export * from "./ImpactSlide";
 export * from "./CaseSlide";
 export * from "./FutureSlide";
 export * from "./ComparisonSlide";
+export * from "./ActionSlide";

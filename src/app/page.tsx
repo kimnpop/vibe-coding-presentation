@@ -15,6 +15,7 @@ import {
   CaseSlide,
   FutureSlide,
   ComparisonSlide,
+  ActionSlide,
 } from "./components/slides";
 
 export default function PitchDeck() {
@@ -102,6 +103,8 @@ export default function PitchDeck() {
         return <FutureSlide slide={slide} />;
       case "comparison":
         return <ComparisonSlide slide={slide} />;
+      case "action":
+        return <ActionSlide slide={slide} />;
       default:
         return null;
     }
