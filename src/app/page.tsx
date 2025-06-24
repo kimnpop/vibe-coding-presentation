@@ -6,7 +6,6 @@ import { Controls } from "./components/Controls";
 import {
   HeroSlide,
   ProblemSlide,
-  QuestionSlide,
   IssueSlide,
   ImpactSlide,
   CaseSlide,
@@ -14,6 +13,7 @@ import {
   ComparisonSlide,
   ActionSlide,
   WorkDistributionSlide,
+  MindsetSlide,
 } from "./components/slides";
 
 export default function PitchDeck() {
@@ -95,10 +95,10 @@ export default function PitchDeck() {
         return <CaseSlide slide={slide} />;
       case "future":
         return <FutureSlide slide={slide} />;
-      case "question":
-        return <QuestionSlide slide={slide} />;
       case "workDistribution":
         return <WorkDistributionSlide slide={slide} />;
+      case "mindset":
+        return <MindsetSlide slide={slide} />;
       default:
         return null;
     }

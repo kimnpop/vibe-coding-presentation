@@ -5,7 +5,6 @@ import {
   Rocket,
   FileText,
   Users,
-  GitBranch,
   Eye,
   CheckCircle,
   ConciergeBell,
@@ -25,6 +24,7 @@ import {
   GitMerge,
   FileX2,
   Github,
+  BrainCircuit,
 } from "lucide-react";
 
 export interface Slide {
@@ -39,6 +39,8 @@ export interface Slide {
   }>;
   icon: React.ComponentType<{ size?: number; className?: string }>;
   points?: Array<{
+    metric?: string;
+    metricLabel?: string;
     text: string;
     icon: React.ComponentType<{ className?: string }>;
   }>;
@@ -354,19 +356,31 @@ export const slides: Slide[] = [
     ],
   },
   {
-    type: "question",
-    title: "메시지 요약",
+    type: "mindset",
+    title: "새로운 시대의 업무 원칙",
+    subtitle: "AI는 도구가 아니라, 새로운 업무 표준입니다",
     description:
-      "업무의 경계는 효율을 위해 만들어졌지만,\n오늘날에는 생산성의 병목이 됩니다.\n\nAI는 역할을 넘고, 경계를 허물고, 흐름을 통합합니다.\n\nAI에게 전체 업무 흐름을 맡기고,\n우리는 방향을 설정하고 검토하는 역할로 전환해야 합니다.",
-    highlight: "AI와 함께하는 업무 혁신",
-    icon: CheckCircle,
-    subtitle: "경계를 허물고 흐름을 통합하는 AI",
-  },
-  {
-    type: "hero",
-    title: "하던대로 하면, 계속 그 정도만 나옵니다",
-    subtitle: "AI를 도구로만 쓰지 말고, 팀처럼 일하게 하십시오",
-    description: "이제는 우리가 AI에게 일을 시킬 차례입니다",
-    icon: GitBranch,
+      "비즈니스 목표를 달성하는 방식은 근본적으로 바뀌었습니다. 이제 AI와 함께 일하는 새로운 방식이 '선택'이 아닌 '표준'이 되고 있습니다. 이 원칙들을 따르지 못한다면, 우리는 더 이상 AI 시대가 요구하는 기준에 맞는 인재라고 할 수 없을 것입니다.",
+    icon: BrainCircuit,
+    points: [
+      {
+        metric: "0",
+        metricLabel: "Handoff",
+        text: "AI를 프로세스 통합자로 삼아 팀 간의 경계를 허물고, 실행의 병목을 원천적으로 제거합니다.",
+        icon: GitMerge,
+      },
+      {
+        metric: "0%",
+        metricLabel: "업무를 위한 업무",
+        text: "반복적이고 가치 없는 업무를 AI에 위임하여, 확보된 자원을 100% 핵심 가치 창출에 집중시킵니다.",
+        icon: Rocket,
+      },
+      {
+        metric: "∞",
+        metricLabel: "가설 검증 사이클",
+        text: "'어떻게'의 제약을 AI로 제거하고, '무엇을, 왜'에만 집중하여 실패 비용 없이 무한에 가깝게 실험하고 학습합니다.",
+        icon: Sparkles,
+      },
+    ],
   },
 ];

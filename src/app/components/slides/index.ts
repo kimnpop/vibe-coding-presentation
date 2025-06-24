@@ -8,3 +8,5 @@ export * from "./FutureSlide";
 export * from "./ComparisonSlide";
 export * from "./ActionSlide";
 export * from "./WorkDistributionSlide";
+export * from "./StrengthSlide";
+export * from "./MindsetSlide";
