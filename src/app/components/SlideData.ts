@@ -22,6 +22,9 @@ import {
   ExternalLink,
   Sparkles,
   PieChart,
+  GitMerge,
+  FileX2,
+  Github,
 } from "lucide-react";
 
 export interface Slide {
@@ -86,6 +89,18 @@ export interface Slide {
     color: string;
   }>;
   source?: string;
+  processDetails?: Array<{
+    title: string;
+    description: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>;
+  automationFlow?: {
+    title: string;
+    steps: Array<{
+      name: string;
+      icon: React.ComponentType<{ className?: string }>;
+    }>;
+  };
 }
 
 export const slides: Slide[] = [
@@ -301,18 +316,42 @@ export const slides: Slide[] = [
   },
   {
     type: "future",
-    title: "사례: 살아있는 문서 만들기",
-    subtitle: "코드가 바뀔 때 문서도 자동으로 바꾸자",
-    description: "문서가 금방 낡는 문제를 해결하기 위한 자동화 시스템",
-    applications: [
-      "⚠️ 문서가 금방 낡는다",
-      "💡 코드가 바뀔 때 문서도 자동으로 바꾸자",
-      "🤖 GitHub Actions + AI",
-      "🔄 PR 병합 → 문서 자동 갱신",
-      "✅ 항상 최신 상태의 설계 문서 자동 유지",
+    title: "사례: '살아있는' 시스템 설계서",
+    subtitle: "AI로 코드와 문서의 라이프사이클을 동기화합니다.",
+    description:
+      "SSoT(Single Source of Truth) 부재 문제를 AI로 해결한 과정입니다.",
+    icon: GitMerge,
+    processDetails: [
+      {
+        title: "As-is: 제안과 논의의 기록",
+        description:
+          "우리는 `RFC`와 `Design Doc`을 통해 아이디어를 제안하고, 특정 시점의 설계를 기록으로 남깁니다. 하지만 이 문서들은 '박제된 생각'일 뿐, 살아있는 코드의 최종 모습을 반영하지는 못합니다.",
+        icon: FileText,
+      },
+      {
+        title: "Problem: 시스템의 현재 청사진 부재",
+        description:
+          "개발이 진행되며 코드는 계속 바뀌지만, 이를 따라 문서를 갱신하는 것은 엄청난 비용입니다. 결국, 시스템의 현재 상태를 정확히 보여주는 '단일 진실 공급원 (SSoT)'은 존재하지 않게 됩니다.",
+        icon: FileX2,
+      },
     ],
-    icon: FileText,
-    highlight: "항상 최신 상태의 문서",
+    automationFlow: {
+      title: "To-be: AI 기반 자동화 파이프라인",
+      steps: [
+        { name: "PR Merge", icon: GitMerge },
+        { name: "GitHub Action", icon: Github },
+        { name: "Script", icon: Code },
+        { name: "Gemini AI", icon: Bot },
+        { name: "Wiki Update", icon: FileText },
+      ],
+    },
+    links: [
+      {
+        text: "완성된 실제 설계 문서 보기",
+        url: "https://github.com/khc-dp/dp-app-techblog/wiki/System-Architecture",
+        icon: ExternalLink,
+      },
+    ],
   },
   {
     type: "question",
