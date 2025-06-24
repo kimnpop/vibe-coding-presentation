@@ -350,9 +350,14 @@ export const slides: Slide[] = [
     },
     links: [
       {
-        text: "완성된 실제 설계 문서 보기",
+        text: "완성된 설계 문서 보기",
         url: "https://github.com/khc-dp/dp-app-techblog/wiki/System-Architecture",
         icon: ExternalLink,
+      },
+      {
+        text: "자동화 과정 보기",
+        url: "https://github.com/khc-dp/dp-app-techblog/blob/main/.github/workflows/publish_to_wiki.yml",
+        icon: Github,
       },
     ],
   },

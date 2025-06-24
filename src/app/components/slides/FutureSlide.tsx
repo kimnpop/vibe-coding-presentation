@@ -135,7 +135,7 @@ export const FutureSlide = ({ slide }: SlideComponentProps) => {
             </>
           )}
           {slide.links && (
-            <div className="flex w-full justify-center">
+            <div className="flex w-full justify-center space-x-4">
               {slide.links.map((link, index) => (
                 <a
                   key={index}
